@@ -1,7 +1,19 @@
 from flask import Flask, render_template
 from datetime import datetime
+import git
 
 app = Flask(__name__)
+
+
+@app.route('/git_update', methods=['POST']) #webhook
+def git_update():
+    repo = git.Repo('./candyfloss-flask')
+    origin = repo.remotes.origin
+    repo.create_head('main', origin.refs.main).set_tracking_branch(
+        origin.refs.main).checkout()
+    origin.pull()
+    return '', 200
+
 
 @app.route("/")
 def hello_world():
