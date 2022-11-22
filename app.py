@@ -1,11 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template  # pip install flask
 from datetime import datetime
-import git
+import git  # pip install GitPython
+
+# importing our feeds
 
 app = Flask(__name__)
 
 
-@app.route('/git_update', methods=['POST']) #webhook
+@app.route('/git_update', methods=['POST'])  # webhook
 def git_update():
     repo = git.Repo('./candyfloss-flask')
     origin = repo.remotes.origin
@@ -28,3 +30,5 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
+
+# flask run
