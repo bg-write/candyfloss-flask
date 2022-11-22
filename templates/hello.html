@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static', filename='styles.css') }}"
+			media="screen" />
+		<title>Candyfloss | The music news of the day, curated by Brady Gerber</title>
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<div id="head">
+					<span id="headline">Candyfloss</span>
+					<img
+						src="{{ url_for('static', filename='animated_globe.gif') }}"
+						alt="candyfloss-logo" />
+				</div>
+				<div id="subhead">
+					<div>The music news of the day curated by Brady Gerber</div>
+					<div>Today is <span>{{ date }}</span></div>
+				</div>
+			</header>
+			<main>
+				<ul id="list">
+					<li class="list-item">hi.</li>
+				</ul>
+			</main>
+			<footer>
+				Built with Python |
+				<a href="https://bradygerber.com/" target="_blank" rel="noopener noreferrer"
+					>Website</a
+				>
+				|
+				<a
+					href="https://twitter.com/BradyWGerber"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Twitter</a
+				>
+				|
+				<a
+					href="https://www.linkedin.com/in/brady-gerber/"
+					target="_blank"
+					rel="noopener noreferrer"
+					>LinkedIn</a
+				>
+				|
+				<a
+					href="https://github.com/bg-write"
+					target="_blank"
+					rel="noopener noreferrer"
+					>GitHub</a
+				>
+			</footer>
+		</div>
+	</body>
+</html>

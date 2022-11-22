@@ -1,0 +1,46 @@
+#container {
+	padding: 1rem;
+}
+
+#headline {
+	font-size: 4rem;
+}
+
+img {
+	width: 1.5rem;
+}
+
+#subhead {
+	margin-left: 1.5rem;
+}
+
+#date {
+	font-weight: bold;
+}
+
+footer {
+	margin-left: 1.5rem;
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 600px) {
+	#subhead,
+	footer {
+		margin: 0 auto;
+	}
+
+	footer {
+		font-size: 0.75rem;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	#headline {
+		font-size: 2.5rem;
+	}
+	footer {
+		font-size: 0.6rem;
+	}
+}
