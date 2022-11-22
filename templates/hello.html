@@ -27,7 +27,16 @@
 			</header>
 			<main>
 				<ul id="list">
-					<li class="list-item">This is exciting.</li>
+					{%for i in range(0, len)%}
+					<li class="list-item">
+						{{review_title[i]}} (<a
+							href="{{review_URL[i]}}"
+							target="_blank"
+							rel="noopener noreferrer"
+							>{{review_author[i]}} / {{review_publication[i]}}</a
+						>)
+					</li>
+					{%endfor%}
 				</ul>
 			</main>
 			<footer>
