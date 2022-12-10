@@ -37,16 +37,10 @@ def deliver_soup():
         
         article_title = article.find('title').text
         article_URL = article.find('link').text
-        # review_ID = review.find('guid').text
         article_date = article.find('pubDate').text
-        # review_description = review.find('description').text
-        # review_category = review.find('category').text
-        # media_keywords = review.find('media:keywords').text if review.find(
-        #     'media:keywords') else ''
         article_author = article.find('dc:creator').text
-        # review_publisher = review.find('dc:publisher').text
 
-        # # fill in our arrays with our loop variable values
+        # fill in our arrays with our loop variable values
         article_title_arr.append(article_title)
         article_URL_arr.append(article_URL)
         article_author_arr.append(article_author)
