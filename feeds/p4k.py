@@ -3,7 +3,7 @@ import requests  # pip install requests
 # pip install lxml
 
 
-def get_soup():
+def get_soup(): 
     html_text = requests.get(
         'https://pitchfork.com/feed/feed-album-reviews/rss').text
     return BeautifulSoup(html_text, 'xml')
@@ -14,7 +14,7 @@ soup = get_soup()
 print("soup got!")
 
 
-def cook_soup():  # each p4k review is in an "item"
+def cook_soup():  # in our rss link, each p4k review is in an "item"
     return soup.find_all('item')
 
 
@@ -22,7 +22,7 @@ print('cooking soup ...')
 reviews = cook_soup()
 print('soup cooked!')
 
-# define empty arrays that we'll soon fill up with our loop
+# define the empty arrays we'll soon fill up with our loop
 review_title_arr = []
 review_URL_arr = []
 review_author_arr = []
@@ -31,7 +31,7 @@ review_publication_arr = []
 
 def deliver_soup():
     for review in reviews:
-        # define our variables (we won't print every one)
+        # define our variables (we won't print every single one)
         review_publication = 'Pitchfork'
         review_RSS = 'https://pitchfork.com/feed/feed-album-reviews/rss'
         review_title = review.find('title').text

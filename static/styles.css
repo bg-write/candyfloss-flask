@@ -1,5 +1,11 @@
+/*
+White: #FFFFFF
+Black Wash: #0D0D0D
+*/
+
 #container {
 	padding: 1rem;
+	color: #0d0d0d;
 }
 
 #headline {
