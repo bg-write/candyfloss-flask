@@ -6,22 +6,24 @@ from datetime import datetime
 
 def get_soup():
     html_text = requests.get(
-        'https://www.stereogum.com/category/reviews/album-of-the-week/feed/').text
+        'https://aquariumdrunkard.com/feed/').text
     return BeautifulSoup(html_text, 'xml')
 
 
 print('getting soup ...')
 soup = get_soup()
 print("soup got!")
+# print(soup)
 
 
-def cook_soup():  # in our rss link, each stereogum feature is in an "item"
+def cook_soup():  # in our rss link, each feature is in an "item"
     return soup.find_all('item')
 
 
 print('cooking soup ...')
 articles = cook_soup()
 print('soup cooked!')
+# print(articles)
 
 # define the empty arrays we'll soon fill up with our loop
 index_list = []
@@ -35,8 +37,8 @@ date_list = []
 def deliver_soup():
     for idx, article in enumerate(articles):
         # define our variables (we won't print every single one)
-        article_publication = 'Stereogum'
-        article_RSS = 'https://www.stereogum.com/category/reviews/album-of-the-week/feed/'
+        article_publication = 'Aquarium Drunkard'
+        article_RSS = 'https://aquariumdrunkard.com/feed/'
         article_index = idx
         article_title = article.find('title').text
         article_URL = article.find('link').text
@@ -66,8 +68,8 @@ print('soup delivered!')
 # print(publication_list)
 # print(date_list)
 
-# combine all my lists into a gum dict
-gum = [
+# combine all my lists into a dict
+ad = [
     {'idx': idx,
      'title': title,
      'URL': URL,
@@ -76,5 +78,6 @@ gum = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
+# print(ad)
 
-# python feeds/gum.py
+# python feeds/ad.py
