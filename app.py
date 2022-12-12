@@ -14,20 +14,9 @@ link_dicts = p4k + gum + ad
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 
 # reducing our feed to a specific number
-link_dicts_sorted_and_reduced = link_dicts_sorted[0:20]
+link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 app = Flask(__name__)
-
-
-# webhook # todo do I still need this?
-@app.route('/git_update', methods=['POST'])
-def git_update():
-    repo = git.Repo('./candyfloss-flask')
-    origin = repo.remotes.origin
-    repo.create_head('main', origin.refs.main).set_tracking_branch(
-        origin.refs.main).checkout()
-    origin.pull()
-    return '', 200
 
 
 @app.route("/")
