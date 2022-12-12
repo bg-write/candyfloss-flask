@@ -1,20 +1,20 @@
 from flask import Flask, render_template  # pip install flask
 from datetime import datetime
-import git  # pip install GitPython
 
 # importing our feeds
 from feeds.p4k import p4k
 from feeds.gum import gum
 from feeds.ad import ad
+from feeds.ringer import ringer
 
 # combining our feeds
-link_dicts = p4k + gum + ad
+link_dicts = p4k + gum + ad + ringer
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 
 # reducing our feed to a specific number
-link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
+link_dicts_sorted_and_reduced = link_dicts_sorted[0:30]
 
 app = Flask(__name__)
 
