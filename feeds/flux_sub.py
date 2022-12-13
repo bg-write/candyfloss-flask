@@ -6,7 +6,7 @@ from datetime import datetime
 
 def get_soup():
     html_text = requests.get(
-        'http://www.fluxblog.org/feed/').text
+        'https://fluxblog.substack.com/feed').text
     return BeautifulSoup(html_text, 'xml')
 
 
@@ -37,14 +37,15 @@ date_list = []
 def deliver_soup():
     for idx, article in enumerate(articles):
         # define our variables (we won't print every single one)
-        article_publication = 'Fluxblog (Blog)'
-        article_RSS = 'http://www.fluxblog.org/feed/'
+        article_publication = 'Fluxblog'
+        article_RSS = 'https://fluxblog.substack.com/feed'
         article_index = idx
         article_title = article.find('title').text
         article_URL = article.find('link').text
         article_date = article.find('pubDate').text
+        # standard time for this app is: %a, %d %b %Y %H:%M:%S %z, but might need to tweak case by case (see flux_sub file for example of change)
         article_date_formatted = datetime.strptime(
-            article_date, "%a, %d %b %Y %H:%M:%S %z")
+            article_date, "%a, %d %b %Y %H:%M:%S %Z")
         use_this_date = article_date_formatted.isoformat()
         article_author = article.find('dc:creator').text
 
@@ -69,7 +70,7 @@ print('soup delivered!')
 # print(date_list)
 
 # combine all my lists into a dict
-flux = [
+flux_sub = [
     {'idx': idx,
      'title': title,
      'URL': URL,
@@ -78,6 +79,6 @@ flux = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
-# print(flux)
+print(flux_sub)
 
-# python feeds/flux.py
+# python feeds/flux_sub.py
