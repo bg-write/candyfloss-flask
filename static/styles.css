@@ -20,9 +20,21 @@ img {
 	margin-left: 1.5rem;
 }
 
-#date {
-	font-weight: bold;
+ul {
+	list-style: none;
 }
+
+ul li::before {
+	content: '*';
+}
+
+ul li {
+	padding: 2px;
+}
+
+/* ul {
+	list-style: url('./animated_globe.gif');
+} */
 
 footer {
 	margin-left: 1.5rem;
@@ -43,6 +55,9 @@ footer {
 }
 
 @media screen and (max-width: 360px) {
+	#container {
+		font-size: 1.5rem;
+	}
 	#headline {
 		font-size: 2.5rem;
 	}

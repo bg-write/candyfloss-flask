@@ -14,8 +14,9 @@ link_dicts = p4k + gum + ad + ringer
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 
 # reducing our feed to a specific number
-link_dicts_sorted_and_reduced = link_dicts_sorted[0:30]
+link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
+# Universal Time Coordinated (UTC/GMT time)
 current_date = datetime.now().strftime("%b %d, %Y")
 
 app = Flask(__name__)

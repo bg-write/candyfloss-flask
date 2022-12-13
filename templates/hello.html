@@ -9,7 +9,7 @@
 			type="text/css"
 			href="{{ url_for('static', filename='styles.css') }}"
 			media="screen" />
-		<title>Candyfloss | The music news of the day, curated by Brady Gerber</title>
+		<title>Candyfloss | Today's Music News Curated By Brady Gerber</title>
 	</head>
 	<body>
 		<div id="container">
@@ -21,8 +21,8 @@
 						alt="candyfloss-logo" />
 				</div>
 				<div id="subhead">
-					<div>The music news of the day, curated by Brady Gerber</div>
-					<div>Today is <span>{{ date }}</span></div>
+					<div>The music news of the day curated by Brady Gerber</div>
+					<div>Today is <span>{{ date }} UTC</span></div>
 				</div>
 			</header>
 			<main>
@@ -38,10 +38,10 @@
 			</main>
 			<footer>
 				candyfloss is a digital newspaper that aggregates the latest music news and
-				longform writing (and the occasional random sports link), curated by brady
-				gerber and built with python & flask |
+				longform writing (and occasional sports link) curated by music journalist
+				brady gerber and built with python |
 				<a href="https://bradygerber.com/" target="_blank" rel="noopener noreferrer"
-					>brady</a
+					>website</a
 				>
 				|
 				<a
@@ -63,6 +63,20 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					>github</a
+				>
+				|
+				<a
+					href="https://myreps.datamade.us/"
+					target="_blank"
+					rel="noopener noreferrer"
+					>find your local reps</a
+				>
+				|
+				<a
+					href="https://www.paypal.com/paypalme/BGerber654?locale.x=en_US"
+					target="_blank"
+					rel="noopener noreferrer"
+					>donate to my coffee fund</a
 				>
 			</footer>
 		</div>
