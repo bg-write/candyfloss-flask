@@ -16,12 +16,13 @@ link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 # reducing our feed to a specific number
 link_dicts_sorted_and_reduced = link_dicts_sorted[0:30]
 
+current_date = datetime.now().strftime("%b %d, %Y")
+
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello_world():
-    current_date = datetime.now().strftime("%b %d, %Y")
     return render_template('hello.html', date=current_date, links=link_dicts_sorted_and_reduced)
 
 
@@ -31,7 +32,7 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=False, use_reloader=True)
 
 # flask --debug run
 # python app.py
