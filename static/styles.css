@@ -44,6 +44,11 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+	#list {
+		padding: 0;
+		font-size: 0.8rem;
+	}
+
 	#subhead,
 	footer {
 		margin: 0 auto;
