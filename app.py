@@ -20,7 +20,6 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 # Universal Time Coordinated (UTC/GMT time)
 '''
-https://www.geeksforgeeks.org/python-datetime-strptime-function/
 WEEKDAYS
 %a = Sun, Mon
 %A = Sunday, Monday
@@ -28,6 +27,12 @@ WEEKDAYS
 DAYS OF THE MONTH
 %d = 01, 02
 %-d = 1, 2
+DAYS OF THE YEAR
+%j = 001, 365
+%-j = 1, 365
+WEEKS OF THE YEAR
+%U = 0, 6 (Sunday counts as the first day)
+%W = 00, 53
 MONTHS
 %b = Jan, Feb
 %B = January, February
@@ -38,6 +43,26 @@ YEARS
 %Y = 2000, 1999
 %-y = 0, 99
 HOURS
+%H = 01, 23
+%-H = 1, 23
+%I = 01, 12
+%-I = 1, 12
+%p = AM, PM
+MINUTES
+%M = 01, 59
+%-M = 1, 59
+SECONDS
+%S = 01, 59
+%-S = 1, 59
+%f = 000000, 999999
+TIME ZONES
+%z = +HHMM, -HHMM
+%Z = UTC
+LOCALE INFO
+%c = Mon Sep 30 07:06:05 2013
+%x = 11/30/98
+%X = 10:03:43
+%% = a literal % character
 '''
 current_date = datetime.now().strftime("%b %d, %Y")
 
