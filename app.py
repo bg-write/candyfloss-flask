@@ -6,9 +6,10 @@ from feeds.p4k import p4k
 from feeds.gum import gum
 from feeds.ad import ad
 from feeds.ringer import ringer
+from feeds.flux import flux
 
 # combining our feeds
-link_dicts = p4k + gum + ad + ringer
+link_dicts = p4k + gum + ad + ringer + flux
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
