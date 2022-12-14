@@ -29,7 +29,7 @@ ul li::before {
 }
 
 ul li {
-	padding: 2px;
+	padding: .25rem;
 }
 
 /* ul {

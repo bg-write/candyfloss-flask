@@ -50,7 +50,6 @@ def deliver_soup():
         # article_author = article.find('author').text
         article_author = article.find('author').text.strip()
         use_this_author = article_author.replace('\n', ', ')
-        print(use_this_author)
 
         # fill in our lists with our loop variable values
         index_list.append(article_index)
