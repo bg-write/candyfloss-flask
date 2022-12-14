@@ -30,7 +30,7 @@
 					{% for i in links %}
 					<li key="{{i.idx}}" class="list-item">
 						{{i.title}} (<a href="{{i.URL}}" target="_blank" rel="noopener noreferrer"
-							>{{i.publication}}</a
+							>{{i.author}} / {{i.publication}}</a
 						>)
 					</li>
 					{% endfor %}
@@ -39,7 +39,7 @@
 			<footer>
 				candyfloss is a digital newspaper aggregating the latest music news and
 				longform writing (and occasional sports link) built and curated by brady
-				gerber |
+				gerber | author credit is given when possible |
 				<a href="https://bradygerber.com/" target="_blank" rel="noopener noreferrer"
 					>website</a
 				>

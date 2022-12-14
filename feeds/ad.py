@@ -46,7 +46,9 @@ def deliver_soup():
         article_date_formatted = datetime.strptime(
             article_date, "%a, %d %b %Y %H:%M:%S %z")
         use_this_date = article_date_formatted.isoformat()
-        article_author = article.find('dc:creator').text
+        # todo author credit here is given to the publisher, not the writer - turning this into a strict string for now
+        # article_author = article.find('dc:creator').text
+        article_author = 'Aquarium Drunkard'
 
         # fill in our arrays with our loop variable values
         index_list.append(article_index)

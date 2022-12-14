@@ -46,13 +46,17 @@ def deliver_soup():
         # article_date_formatted = datetime.strptime(
         #     article_date, "%a, %d %b %Y %H:%M:%S %z")
         # use_this_date = article_date_formatted.isoformat()
-        article_author = 'TBD'
+        # for when I'm dealing with multiple names in one author tag ...
+        # article_author = article.find('author').text
+        article_author = article.find('author').text.strip()
+        use_this_author = article_author.replace('\n', ', ')
+        print(use_this_author)
 
         # fill in our lists with our loop variable values
         index_list.append(article_index)
         title_list.append(article_title)
         URL_list.append(article_URL)
-        author_list.append(article_author)
+        author_list.append(use_this_author)
         publication_list.append(article_publication)
         date_list.append(article_date)
 
@@ -78,6 +82,6 @@ ringer = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
-print(ringer)
+# print(ringer)
 
 # python feeds/ringer.py
