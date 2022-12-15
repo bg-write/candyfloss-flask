@@ -18,5 +18,6 @@
 - Chicago Reader (Gossip Wolf column)
 - Uproxx (Steven Hyden column)
 - Abundant Living (Ghost)
+- Billboard (Global and Chart Beat)
 
 ###### Corn favicon by Icons8

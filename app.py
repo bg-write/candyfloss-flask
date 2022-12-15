@@ -16,9 +16,12 @@ from feeds.uproxx import uproxx
 # from feeds.quietus import quietus
 # from feeds.eight_bit_theory import eight_bit_theory
 from feeds.abundant_living import abundant_living
+# from feeds.billboard_global import billboard_global
+from feeds.billboard_chart_beat import billboard_chart_beat
 
 # combining our feeds
-link_dicts = p4k + gum + ad + ringer + flux_sub + MJI + penny + chi_reader + uproxx + abundant_living
+link_dicts = p4k + gum + ad + ringer + flux_sub + MJI + penny + chi_reader + \
+    uproxx + abundant_living + billboard_chart_beat
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
