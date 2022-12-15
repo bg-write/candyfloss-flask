@@ -6,7 +6,7 @@ from datetime import datetime
 
 def get_soup():  # when it's an RSS feed, stick to "xml" - but when it's a normal web link, use "lxml"
     html_text = requests.get(
-        'https://www.billboard.com/c/business/chart-beat/feed/').text
+        'https://rss.app/feeds/m8Ku0m1gMmLpV1IC.xml').text
     return BeautifulSoup(html_text, 'xml')
 
 
@@ -36,9 +36,10 @@ date_list = []
 
 def deliver_soup():
     for idx, article in enumerate(articles):
-        # define our variables (we won't print every single one)
-        article_publication = 'Billboard'
-        article_RSS = 'https://www.billboard.com/c/business/chart-beat/feed/'
+        # define our variables
+        # (we won't print every single one)
+        article_publication = 'Bandcamp Daily'
+        article_RSS = 'https://rss.app/feeds/m8Ku0m1gMmLpV1IC.xml'
         article_index = idx
         article_title = article.find('title').text
         article_URL = article.find('link').text
@@ -50,9 +51,9 @@ def deliver_soup():
         (see flux_sub file for example of change)
         '''
         article_date_formatted = datetime.strptime(
-            article_date, "%a, %d %b %Y %H:%M:%S %z")
+            article_date, "%a, %d %b %Y %H:%M:%S %Z")
         use_this_date = article_date_formatted.isoformat()
-        # refer to "ringer" file for multiple authors
+        # todo author credit here is given to the publisher, not the writer - turning this into a strict string for now
         article_author = article.find('dc:creator').text
 
         # fill in our lists with our loop variable values
@@ -76,7 +77,7 @@ print('soup delivered!')
 # print(date_list)
 
 # combine all my lists into a dict
-billboard_chart_beat = [
+bandcamp = [
     {'idx': idx,
      'title': title,
      'URL': URL,
@@ -85,6 +86,6 @@ billboard_chart_beat = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
-# print(billboard_chart_beat)
+# print(bandcamp)
 
-# python feeds/billboard_chart_beat.py
+# python feeds/bandcamp.py
