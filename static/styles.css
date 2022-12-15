@@ -56,6 +56,11 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+	#container {
+		border: 0.5rem solid #0d0d0d;
+		font-size: 1.25rem;
+	}
+
 	#list {
 		padding: 0;
 		font-size: 0.8rem;

@@ -4,9 +4,9 @@ from datetime import datetime
 # pip install lxml
 
 
-def get_soup():
+def get_soup():  # when it's an RSS feed, stick to "xml" - but when it's a normal web link, use "lxml"
     html_text = requests.get(
-        'https://pennyfractions.ghost.io/rss/').text
+        'https://uproxx.com/author/steven-hyden/feed/').text
     return BeautifulSoup(html_text, 'xml')
 
 
@@ -25,7 +25,7 @@ articles = cook_soup()
 print('soup cooked!')
 # print(articles)
 
-# # define the empty lists we'll soon fill up with our loop
+# define the empty lists we'll soon fill up with our loop
 index_list = []
 title_list = []
 URL_list = []
@@ -37,8 +37,8 @@ date_list = []
 def deliver_soup():
     for idx, article in enumerate(articles):
         # define our variables (we won't print every single one)
-        article_publication = 'Penny Fractions'
-        article_RSS = 'https://pennyfractions.ghost.io/rss/'
+        article_publication = 'Uproxx'
+        article_RSS = 'https://uproxx.com/author/steven-hyden/feed/'
         article_index = idx
         article_title = article.find('title').text
         article_URL = article.find('link').text
@@ -47,10 +47,10 @@ def deliver_soup():
         standard time for this app is:
         %a, %d %b %Y %H:%M:%S %z
         but might need to tweak case by case
-        (see flux_sub file for example of change)        
+        (see flux_sub file for example of change)
         '''
         article_date_formatted = datetime.strptime(
-            article_date, "%a, %d %b %Y %H:%M:%S %Z")
+            article_date, "%a, %d %b %Y %H:%M:%S %z")
         use_this_date = article_date_formatted.isoformat()
         article_author = article.find('dc:creator').text
 
@@ -75,7 +75,7 @@ print('soup delivered!')
 # print(date_list)
 
 # combine all my lists into a dict
-penny = [
+uproxx = [
     {'idx': idx,
      'title': title,
      'URL': URL,
@@ -84,6 +84,6 @@ penny = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
-# print(penny)
+# print(uproxx)
 
-# python feeds/penny.py
+# # python feeds/uproxx.py

@@ -84,6 +84,6 @@ chi_reader = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
-print(chi_reader)
+# print(chi_reader)
 
 # python feeds/chi_reader.py

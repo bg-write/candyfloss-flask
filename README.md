@@ -15,5 +15,7 @@
 - Fluxblog (Substack)
 - Music Journalism Insider (Substack)
 - Penny Fractions (Ghost)
+- Chicago Reader (Gossip Wolf column)
+- Uproxx (Steven Hyden column)
 
 ###### Corn favicon by Icons8
