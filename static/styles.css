@@ -1,12 +1,12 @@
-/*
-White: #FFFFFF
-Black Wash: #0D0D0D
-Gold: #FFD900
-Blue: #0026FF
-*/
+:root {
+	--black: #0d0d0d;
+	--white: #ffffff;
+	--gold: #ffd900;
+	--blue: #0026ff;
+}
 
 html {
-	background-color: #ffffff;
+	background-color: var(--black);
 }
 
 a {
@@ -15,13 +15,14 @@ a {
 
 #container {
 	padding: 1rem;
-	color: #0d0d0d;
-	background-color: #ffd900;
-	border: 1rem solid #0d0d0d;
+	color: var(--black);
+	background-color: var(--gold);
+	border: 1rem solid var(--black);
+	font-size: 1.3rem;
 }
 
 #headline {
-	font-size: 4rem;
+	font-size: 5rem;
 }
 
 img {
@@ -57,8 +58,12 @@ footer {
 
 @media screen and (max-width: 600px) {
 	#container {
-		border: 0.5rem solid #0d0d0d;
+		border: 0.5rem solid var(--black);
 		font-size: 1.25rem;
+	}
+
+	#headline {
+		font-size: 3.5rem;
 	}
 
 	#list {
@@ -69,6 +74,10 @@ footer {
 	#subhead,
 	footer {
 		margin: 0 auto;
+	}
+
+	#subhead {
+		font-size: 0.9rem;
 	}
 
 	footer {
