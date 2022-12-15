@@ -76,7 +76,7 @@ print(publication_list)
 # print(date_list)
 
 # # combine all my lists into a dict
-# MJI = [
+# creem = [
 #     {'idx': idx,
 #      'title': title,
 #      'URL': URL,
@@ -85,6 +85,6 @@ print(publication_list)
 #      'date': date}
 #     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 # ]
-# # print(MJI)
+# # print(creem)
 
 # python feeds/creem.py

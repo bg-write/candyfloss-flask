@@ -13,9 +13,12 @@ from feeds.penny import penny
 from feeds.chi_reader import chi_reader
 # from feeds.vulture import vulture
 from feeds.uproxx import uproxx
+# from feeds.quietus import quietus
+# from feeds.eight_bit_theory import eight_bit_theory
+from feeds.abundant_living import abundant_living
 
 # combining our feeds
-link_dicts = p4k + gum + ad + ringer + flux_sub + MJI + penny + chi_reader + uproxx
+link_dicts = p4k + gum + ad + ringer + flux_sub + MJI + penny + chi_reader + uproxx + abundant_living
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)

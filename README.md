@@ -17,5 +17,6 @@
 - Penny Fractions (Ghost)
 - Chicago Reader (Gossip Wolf column)
 - Uproxx (Steven Hyden column)
+- Abundant Living (Ghost)
 
 ###### Corn favicon by Icons8
