@@ -1,11 +1,23 @@
 /*
 White: #FFFFFF
 Black Wash: #0D0D0D
+Gold: #FFD900
+Blue: #0026FF
 */
+
+html {
+	background-color: #ffffff;
+}
+
+a {
+	color: #0026ff;
+}
 
 #container {
 	padding: 1rem;
 	color: #0d0d0d;
+	background-color: #ffd900;
+	border: 1rem solid #0d0d0d;
 }
 
 #headline {
@@ -25,11 +37,11 @@ ul {
 }
 
 ul li::before {
-	content: '*';
+	content: '>';
 }
 
 ul li {
-	padding: .25rem;
+	padding: 0.5rem;
 }
 
 /* ul {

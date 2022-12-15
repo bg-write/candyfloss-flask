@@ -15,3 +15,5 @@
 - Fluxblog (Substack)
 - Music Journalism Insider (Substack)
 - Penny Fractions (Ghost)
+
+###### Corn favicon by Icons8
