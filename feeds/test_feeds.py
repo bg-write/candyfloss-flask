@@ -11,4 +11,4 @@ def test_p4k():  # our testing function
 # python feeds/test_feeds.py
 # pytest -q
 # remember: fail fast
-# todo flesh out all my p4k tests, then move outward
+# todo flesh out all my p4k tests, then move outward - the goal is to remove all those soup prints
