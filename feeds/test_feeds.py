@@ -163,5 +163,3 @@ Test methods should start wth keyword "test"
 > pytest (more details)
 > pytest -q (less details)
 '''
-
-# python feeds/test_feeds.py
