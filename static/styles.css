@@ -33,6 +33,10 @@ img {
 	margin-left: 1.5rem;
 }
 
+#list {
+	font-size: 1.25rem;
+}
+
 ul {
 	list-style: none;
 }
@@ -45,22 +49,24 @@ ul li {
 	padding: 0.5rem;
 }
 
-/* ul {
-	list-style: url('./animated_globe.gif');
-} */
-
 footer {
-	/* margin-left: 1.5rem; */
 	margin: 1.5rem;
+	font-size: 1rem;
 }
 
+/* MEDIA QUERIES */
+/* iPad Air, iPad Mini, Surface Pro 7 */
 @media screen and (max-width: 992px) {
+	#container {
+		font-size: 2rem;
+	}
 }
 
+/* iPhone SE, iPhone XR, iPhone 12 Pro, Pixel 5, Samsung Galaxy S8+, Samsung Galaxy S20 Ultra, Surface Duo, Samsung Galaxy A51/71 */
 @media screen and (max-width: 600px) {
 	#container {
 		border: 0.5rem solid var(--black);
-		font-size: 1.25rem;
+		font-size: 2.6rem;
 	}
 
 	#headline {
@@ -69,7 +75,7 @@ footer {
 
 	#list {
 		padding: 0;
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 
 	#subhead,
@@ -78,7 +84,7 @@ footer {
 	}
 
 	#subhead {
-		font-size: 0.9rem;
+		font-size: 1.25rem;
 	}
 
 	footer {
@@ -86,9 +92,10 @@ footer {
 	}
 }
 
+/* Galaxy Fold */
 @media screen and (max-width: 360px) {
 	#container {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 	#headline {
 		font-size: 2.5rem;
