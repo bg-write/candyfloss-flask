@@ -10,6 +10,7 @@ from uproxx import soup, articles, index_list, title_list, URL_list, author_list
 from abundant_living import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, abundant_living
 from billboard_chart_beat import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, billboard_chart_beat
 from bandcamp import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, bandcamp
+from no_bells import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_bells
 
 
 def test_p4k():
@@ -154,6 +155,18 @@ def test_bandcamp():
     assert publication_list
     assert date_list
     assert bandcamp == bandcamp
+    
+def test_no_bells():
+    assert soup
+    assert articles
+    assert index_list
+    assert title_list
+    assert URL_list
+    assert author_list
+    assert publication_list
+    assert date_list
+    assert no_bells == no_bells
+
 
 
 '''NOTES ON PYTEST
