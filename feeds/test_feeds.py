@@ -21,7 +21,7 @@ def test_p4k():
     assert author_list
     assert publication_list
     assert date_list
-    assert p4k
+    assert p4k == p4k
 
 
 def test_gum():
@@ -33,7 +33,7 @@ def test_gum():
     assert author_list
     assert publication_list
     assert date_list
-    assert gum
+    assert gum == gum
 
 
 def test_ad():
@@ -45,7 +45,7 @@ def test_ad():
     assert author_list
     assert publication_list
     assert date_list
-    assert ad
+    assert ad == ad
 
 
 def test_ringer():
@@ -57,7 +57,7 @@ def test_ringer():
     assert author_list
     assert publication_list
     assert date_list
-    assert ringer
+    assert ringer == ringer
 
 
 def test_flux():
@@ -69,7 +69,7 @@ def test_flux():
     assert author_list
     assert publication_list
     assert date_list
-    assert flux_sub
+    assert flux_sub == flux_sub
 
 
 def test_MJI():
@@ -81,7 +81,7 @@ def test_MJI():
     assert author_list
     assert publication_list
     assert date_list
-    assert MJI
+    assert MJI == MJI
 
 
 def test_penny():
@@ -93,7 +93,7 @@ def test_penny():
     assert author_list
     assert publication_list
     assert date_list
-    assert penny
+    assert penny == penny
 
 
 def test_chi_reader():
@@ -105,7 +105,7 @@ def test_chi_reader():
     assert author_list
     assert publication_list
     assert date_list
-    assert chi_reader
+    assert chi_reader == chi_reader
 
 
 def test_uproxx():
@@ -117,7 +117,7 @@ def test_uproxx():
     assert author_list
     assert publication_list
     assert date_list
-    assert uproxx
+    assert uproxx == uproxx
 
 
 def test_abundant():
@@ -129,7 +129,7 @@ def test_abundant():
     assert author_list
     assert publication_list
     assert date_list
-    assert abundant_living
+    assert abundant_living == abundant_living
 
 
 def test_billboard():
@@ -141,7 +141,7 @@ def test_billboard():
     assert author_list
     assert publication_list
     assert date_list
-    assert billboard_chart_beat
+    assert billboard_chart_beat == billboard_chart_beat
 
 
 def test_bandcamp():
@@ -153,7 +153,7 @@ def test_bandcamp():
     assert author_list
     assert publication_list
     assert date_list
-    assert bandcamp
+    assert bandcamp == bandcamp
 
 
 '''NOTES ON PYTEST
