@@ -1,5 +1,6 @@
 from p4k import soup, reviews, index_list, title_list, URL_list, author_list, publication_list, date_list, p4k
 from gum import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, gum
+from ad import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, ad
 
 
 def test_p4k():
@@ -24,6 +25,18 @@ def test_gum():
     assert publication_list
     assert date_list
     assert gum
+
+
+def test_ad():
+    assert soup
+    assert articles
+    assert index_list
+    assert title_list
+    assert URL_list
+    assert author_list
+    assert publication_list
+    assert date_list
+    assert ad
 
 
 '''NOTES ON PYTEST
