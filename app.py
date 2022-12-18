@@ -36,9 +36,14 @@ current_date = datetime.now().strftime("%b %d, %Y")
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/")  # http://127.0.0.1:5000/
 def hello_world():
     return render_template('hello.html', date=current_date, links=link_dicts_sorted_and_reduced)
+
+
+@app.route("/api")  # http://127.0.0.1:5000/api
+def hello_api():
+    return link_dicts_sorted_and_reduced
 
 
 @app.errorhandler(404)
