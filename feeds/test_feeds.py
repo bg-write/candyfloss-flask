@@ -1,14 +1,24 @@
-from p4k import p4k
+from p4k import soup, reviews, index_list, title_list, URL_list, author_list, publication_list, date_list, p4k
 
 
-def feed(x):  # the functions we're actually testing
-    return x
+def test_p4k():
+    assert soup
+    assert reviews
+    assert index_list
+    assert title_list
+    assert URL_list
+    assert author_list
+    assert publication_list
+    assert date_list
+    assert p4k
 
 
-def test_p4k():  # our testing function
-    assert feed(p4k) == p4k
+'''NOTES ON PYTEST
+Files must have format test_XXX.py or XXX_test.py
+Test methods should start wth keyword "test"
+
+> pytest (more details)
+> pytest -q (less details)
+'''
 
 # python feeds/test_feeds.py
-# pytest -q
-# remember: fail fast
-# todo flesh out all my p4k tests, then move outward - the goal is to remove all those soup prints
