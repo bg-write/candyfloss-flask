@@ -10,20 +10,14 @@ def get_soup():
     return BeautifulSoup(html_text, 'xml')
 
 
-print('getting soup ...')
 soup = get_soup()
-print("soup got!")
-# print(soup)
 
 
 def cook_soup():  # each article is in an "entry"
     return soup.find_all('entry')
 
 
-print('cooking soup ...')
 articles = cook_soup()
-print('soup cooked!')
-# print(articles)
 
 # # define the empty lists we'll soon fill up with our loop
 index_list = []
@@ -36,7 +30,8 @@ date_list = []
 
 def deliver_soup():
     for idx, article in enumerate(articles):
-        # define our variables (we won't print every single one)
+        # define our variables
+        # (we won't print every single one)
         article_publication = 'The Ringer'
         article_RSS = 'https://www.theringer.com/rss/music/index.xml'
         article_index = idx
@@ -60,16 +55,7 @@ def deliver_soup():
         date_list.append(article_date)
 
 
-print('delivering soup ...')
 deliver_soup()
-print('soup delivered!')
-
-# print(index_list)
-# print(title_list)
-# print(URL_list)
-# print(author_list)
-# print(publication_list)
-# print(date_list)
 
 # combine all my lists into a dict
 ringer = [
@@ -81,6 +67,4 @@ ringer = [
      'date': date}
     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 ]
-# print(ringer)
-
 # python feeds/ringer.py
