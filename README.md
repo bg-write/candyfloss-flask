@@ -24,5 +24,6 @@
 - The Quietus (reviews)
 - Loud And Quiet (reviews)
 - No Depression (reviews)
+- So It Goes (substack)
 
 ###### Corn favicon by Icons8

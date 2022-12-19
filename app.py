@@ -22,11 +22,13 @@ from feeds.bandcamp import bandcamp
 from feeds.no_bells import no_bells
 from feeds.loud_quiet import loud_quiet
 from feeds.no_depression import no_depression
+from feeds.sterlewine import so_it_goes
 
 # combining our feeds
 link_dicts = p4k + gum + ad + flux_sub + MJI + penny + chi_reader + \
     uproxx + abundant_living + billboard_chart_beat + \
-    bandcamp + ringer + no_bells + quietus + loud_quiet + no_depression
+    bandcamp + ringer + no_bells + quietus + \
+    loud_quiet + no_depression + so_it_goes
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)

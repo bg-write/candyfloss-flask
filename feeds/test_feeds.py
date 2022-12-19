@@ -14,6 +14,7 @@ from no_bells import soup, articles, index_list, title_list, URL_list, author_li
 from quietus import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, quietus
 from loud_quiet import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, loud_quiet
 from no_depression import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_depression
+from sterlewine import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, so_it_goes
 
 
 def test_p4k():
@@ -206,6 +207,18 @@ def test_no_depression():
     assert publication_list
     assert date_list
     assert no_depression == no_depression
+
+
+def test_sterlewine():
+    assert soup
+    assert articles
+    assert index_list
+    assert title_list
+    assert URL_list
+    assert author_list
+    assert publication_list
+    assert date_list
+    assert so_it_goes == so_it_goes
 
 
 '''NOTES ON PYTEST
