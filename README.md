@@ -22,5 +22,6 @@
 - Bandcamp Daily (scene report)
 - No Bells (latest posts)
 - The Quietus (reviews)
+- Loud And Quiet (reviews)
 
 ###### Corn favicon by Icons8

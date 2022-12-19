@@ -12,6 +12,8 @@ from billboard_chart_beat import soup, articles, index_list, title_list, URL_lis
 from bandcamp import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, bandcamp
 from no_bells import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_bells
 from quietus import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, quietus
+from loud_quiet import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, loud_quiet
+
 
 def test_p4k():
     assert soup
@@ -155,7 +157,8 @@ def test_bandcamp():
     assert publication_list
     assert date_list
     assert bandcamp == bandcamp
-    
+
+
 def test_no_bells():
     assert soup
     assert articles
@@ -167,6 +170,7 @@ def test_no_bells():
     assert date_list
     assert no_bells == no_bells
 
+
 def test_quietus():
     assert soup
     assert articles
@@ -177,6 +181,18 @@ def test_quietus():
     assert publication_list
     assert date_list
     assert quietus == quietus
+
+
+def test_loud_quiet():
+    assert soup
+    assert articles
+    assert index_list
+    assert title_list
+    assert URL_list
+    assert author_list
+    assert publication_list
+    assert date_list
+    assert loud_quiet == loud_quiet
 
 
 '''NOTES ON PYTEST

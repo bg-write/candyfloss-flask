@@ -1,4 +1,4 @@
-from app import link_dicts, link_dicts_sorted, link_dicts_sorted_and_reduced, current_date
+from app import link_dicts, link_dicts_sorted, link_dicts_sorted_and_reduced, current_date, app
 
 
 def test_app():
@@ -6,6 +6,7 @@ def test_app():
     assert link_dicts_sorted
     assert link_dicts_sorted_and_reduced
     assert current_date
+    assert app
 
 
 '''NOTES ON PYTEST
