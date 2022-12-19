@@ -13,6 +13,7 @@ from bandcamp import soup, articles, index_list, title_list, URL_list, author_li
 from no_bells import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_bells
 from quietus import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, quietus
 from loud_quiet import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, loud_quiet
+from no_depression import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_depression
 
 
 def test_p4k():
@@ -193,6 +194,18 @@ def test_loud_quiet():
     assert publication_list
     assert date_list
     assert loud_quiet == loud_quiet
+
+
+def test_no_depression():
+    assert soup
+    assert articles
+    assert index_list
+    assert title_list
+    assert URL_list
+    assert author_list
+    assert publication_list
+    assert date_list
+    assert no_depression == no_depression
 
 
 '''NOTES ON PYTEST

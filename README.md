@@ -23,5 +23,6 @@
 - No Bells (latest posts)
 - The Quietus (reviews)
 - Loud And Quiet (reviews)
+- No Depression (reviews)
 
 ###### Corn favicon by Icons8
