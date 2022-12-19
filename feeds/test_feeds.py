@@ -9,7 +9,7 @@ from chi_reader import soup, articles, index_list, title_list, URL_list, author_
 from uproxx import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, uproxx
 from abundant_living import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, abundant_living
 from billboard_chart_beat import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, billboard_chart_beat
-from bandcamp import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, bandcamp
+# from bandcamp import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, bandcamp
 from no_bells import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_bells
 from quietus import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, quietus
 from loud_quiet import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, loud_quiet
@@ -150,16 +150,16 @@ def test_billboard():
     assert billboard_chart_beat == billboard_chart_beat
 
 
-def test_bandcamp():
-    assert soup
-    assert articles
-    assert index_list
-    assert title_list
-    assert URL_list
-    assert author_list
-    assert publication_list
-    assert date_list
-    assert bandcamp == bandcamp
+# def test_bandcamp():
+#     assert soup
+#     assert articles
+#     assert index_list
+#     assert title_list
+#     assert URL_list
+#     assert author_list
+#     assert publication_list
+#     assert date_list
+#     assert bandcamp == bandcamp
 
 
 def test_no_bells():

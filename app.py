@@ -18,7 +18,7 @@ from feeds.quietus import quietus
 from feeds.abundant_living import abundant_living
 # from feeds.billboard_global import billboard_global
 from feeds.billboard_chart_beat import billboard_chart_beat
-from feeds.bandcamp import bandcamp
+# from feeds.bandcamp import bandcamp
 from feeds.no_bells import no_bells
 from feeds.loud_quiet import loud_quiet
 from feeds.no_depression import no_depression
@@ -27,8 +27,7 @@ from feeds.reply_alt import reply_alt
 
 # combining our feeds
 link_dicts = p4k + gum + ad + flux_sub + MJI + penny + chi_reader + \
-    uproxx + abundant_living + billboard_chart_beat + \
-    bandcamp + ringer + no_bells + quietus + \
+    uproxx + abundant_living + billboard_chart_beat + ringer + no_bells + quietus + \
     loud_quiet + no_depression + so_it_goes + reply_alt
 
 # ordering our combined feed by date
@@ -44,12 +43,12 @@ current_date = datetime.now().strftime("%b %d, %Y")
 app = Flask(__name__)
 
 
-@app.route("/")  # http://127.0.0.1:5000/
+@app.route("/")
 def hello_world():
     return render_template('hello.html', date=current_date, links=link_dicts_sorted_and_reduced)
 
 
-@app.route("/api")  # http://127.0.0.1:5000/api
+@app.route("/api")
 def hello_api():
     return link_dicts_sorted
 

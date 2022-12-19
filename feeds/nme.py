@@ -6,8 +6,10 @@ from datetime import datetime
 
 def get_soup():  # when it's an RSS feed, stick to "xml" - but when it's a normal web link, use "lxml"
     html_text = requests.get(
-        'https://www.vulture.com/music/').text
+        'https://www.nme.com/radar').text
     return BeautifulSoup(html_text, 'lxml')
+
+
 soup = get_soup()
 # print(soup)
 
@@ -16,10 +18,7 @@ soup = get_soup()
 #     return soup.find_all('item')
 
 
-# print('cooking soup ...')
 # articles = cook_soup()
-# print('soup cooked!')
-# # print(articles)
 
 # # define the empty lists we'll soon fill up with our loop
 # index_list = []
@@ -32,9 +31,10 @@ soup = get_soup()
 
 # def deliver_soup():
 #     for idx, article in enumerate(articles):
-#         # define our variables (we won't print every single one)
-#         article_publication = 'Chicago Reader'
-#         article_RSS = 'https://chicagoreader.com/music/gossip-wolf/feed/'
+#         # define our variables
+#         # (we won't print every single one)
+#         article_publication = 'NME'
+#         article_RSS = 'https://www.nme.com/radar'
 #         article_index = idx
 #         article_title = article.find('title').text
 #         article_URL = article.find('link').text
@@ -46,7 +46,7 @@ soup = get_soup()
 #         (see flux_sub file for example of change)
 #         '''
 #         article_date_formatted = datetime.strptime(
-#             article_date, "%a, %d %b %Y %H:%M:%S %z")
+#             article_date, "%a, %d %b %Y %H:%M:%S %Z")
 #         use_this_date = article_date_formatted.isoformat()
 #         article_author = article.find('dc:creator').text
 
@@ -59,19 +59,10 @@ soup = get_soup()
 #         date_list.append(use_this_date)
 
 
-# print('delivering soup ...')
 # deliver_soup()
-# print('soup delivered!')
-
-# # print(index_list)
-# # print(title_list)
-# # print(URL_list)
-# # print(author_list)
-# # print(publication_list)
-# # print(date_list)
 
 # # combine all my lists into a dict
-# vulture = [
+# nme = [
 #     {'idx': idx,
 #      'title': title,
 #      'URL': URL,
@@ -80,6 +71,5 @@ soup = get_soup()
 #      'date': date}
 #     for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
 # ]
-# # print(vulture)
-
-# # python feeds/vulture.py
+# # python feeds/nme.py
+# print(nme)

@@ -6,7 +6,7 @@ from datetime import datetime
 
 def get_soup():
     html_text = requests.get(
-        'https://www.stereogum.com/category/reviews/album-of-the-week/feed/').text
+        'https://www.stereogum.com/category/music/feed/').text
     return BeautifulSoup(html_text, 'xml')
 
 
@@ -33,7 +33,7 @@ def deliver_soup():
         # define our variables
         # (we won't print every single one)
         article_publication = 'Stereogum'
-        article_RSS = 'https://www.stereogum.com/category/reviews/album-of-the-week/feed/'
+        article_RSS = 'https://www.stereogum.com/category/music/feed/'
         article_index = idx
         article_title = article.find('title').text
         article_URL = article.find('link').text

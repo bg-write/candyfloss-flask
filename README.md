@@ -9,7 +9,7 @@
 ##### Pulling from the following sources
 
 - Pitchfork (album reviews)
-- Stereogum (album of the week)
+- Stereogum (new music)
 - Aquarium Drunkard (latest posts)
 - The Ringer (music section)
 - Fluxblog (substack)
@@ -19,7 +19,6 @@
 - Uproxx (Steven Hyden column)
 - Abundant Living (ghost)
 - Billboard (chart beat)
-- Bandcamp Daily (scene report)
 - No Bells (latest posts)
 - The Quietus (reviews)
 - Loud And Quiet (reviews)

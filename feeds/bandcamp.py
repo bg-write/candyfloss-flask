@@ -4,7 +4,8 @@ from datetime import datetime
 # pip install lxml
 
 
-def get_soup():  # when it's an RSS feed, stick to "xml" - but when it's a normal web link, use "lxml"
+# when it's an RSS feed, stick to "xml" - but when it's a normal web link, use "lxml" # todo but now this doesn't work ...
+def get_soup():
     html_text = requests.get(
         'https://rss.app/feeds/m8Ku0m1gMmLpV1IC.xml').text
     return BeautifulSoup(html_text, 'xml')
