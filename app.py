@@ -13,7 +13,7 @@ from feeds.penny import penny
 from feeds.chi_reader import chi_reader
 # from feeds.vulture import vulture
 from feeds.uproxx import uproxx
-# from feeds.quietus import quietus
+from feeds.quietus import quietus
 # from feeds.eight_bit_theory import eight_bit_theory
 from feeds.abundant_living import abundant_living
 # from feeds.billboard_global import billboard_global
@@ -23,7 +23,8 @@ from feeds.no_bells import no_bells
 
 # combining our feeds
 link_dicts = p4k + gum + ad + flux_sub + MJI + penny + chi_reader + \
-    uproxx + abundant_living + billboard_chart_beat + bandcamp + ringer + no_bells
+    uproxx + abundant_living + billboard_chart_beat + \
+    bandcamp + ringer + no_bells + quietus
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
@@ -32,6 +33,7 @@ link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 # Universal Time Coordinated (UTC/GMT time)
+# https://www.geeksforgeeks.org/python-datetime-strptime-function/
 current_date = datetime.now().strftime("%b %d, %Y")
 
 app = Flask(__name__)
@@ -44,7 +46,7 @@ def hello_world():
 
 @app.route("/api")  # http://127.0.0.1:5000/api
 def hello_api():
-    return link_dicts_sorted_and_reduced
+    return link_dicts_sorted
 
 
 @app.errorhandler(404)
