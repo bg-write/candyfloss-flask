@@ -25,5 +25,6 @@
 - Loud And Quiet (reviews)
 - No Depression (reviews)
 - So It Goes (substack)
+- Reply Alt (substack)
 
 ###### Corn favicon by Icons8
