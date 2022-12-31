@@ -68,7 +68,7 @@ def deliver_soup():
 
 deliver_soup()
 
-# combine all my lists into a p4k dict
+# combine all my lists into a p4k list of dicts
 p4k = [{
     'idx': idx,
     'title': title,

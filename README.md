@@ -50,7 +50,7 @@ To view the API for the entire feed, at the end of the local server URL, add "/a
 
 ## Running Tests
 
-In a new terminal window, enter and run `pytest`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder.
+In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder.
 
 ---
 

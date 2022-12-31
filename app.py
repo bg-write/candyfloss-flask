@@ -30,7 +30,7 @@ from feeds.no_depression import no_depression
 from feeds.sterlewine import so_it_goes
 from feeds.reply_alt import reply_alt
 
-# combining our feeds
+# combining our feeds into a list of dicts
 link_dicts = p4k + gum + ad + flux_sub + MJI + penny + chi_reader + \
     uproxx + abundant_living + billboard_chart_beat + ringer + no_bells + quietus + \
     loud_quiet + no_depression + so_it_goes + reply_alt
@@ -59,6 +59,7 @@ def hello_world():
 @app.route("/api")
 def hello_api():
     '''returns the full sorted feed as an API (not sliced)'''
+    # todo flesh this out more so that I can go down a level and only return specific publications?
     return link_dicts_sorted
 
 
