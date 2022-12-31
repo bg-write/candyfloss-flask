@@ -31,9 +31,24 @@ from feeds.sterlewine import so_it_goes
 from feeds.reply_alt import reply_alt
 
 # combining our feeds into a list of dicts
-link_dicts = p4k + gum + ad + flux_sub + MJI + penny + chi_reader + \
-    uproxx + abundant_living + billboard_chart_beat + ringer + no_bells + quietus + \
-    loud_quiet + no_depression + so_it_goes + reply_alt
+link_dicts = \
+    p4k + \
+    gum + \
+    ad + \
+    flux_sub + \
+    MJI + \
+    penny + \
+    chi_reader + \
+    uproxx + \
+    abundant_living + \
+    billboard_chart_beat + \
+    ringer + \
+    no_bells + \
+    quietus + \
+    loud_quiet + \
+    no_depression + \
+    so_it_goes + \
+    reply_alt
 
 # ordering our combined feed by date
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
@@ -43,12 +58,12 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 # Universal Time Coordinated (UTC/GMT time)
 # https://www.geeksforgeeks.org/python-datetime-strptime-function/
-current_date = datetime.now().strftime("%b %d, %Y")
+current_date = datetime.now().strftime('%b %d, %Y')
 
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route('/')
 def hello_world():
     '''renders our main app page with our new feed and date'''
     return render_template('hello.html',
@@ -56,7 +71,7 @@ def hello_world():
                            links=link_dicts_sorted_and_reduced)
 
 
-@app.route("/api")
+@app.route('/api')
 def hello_api():
     '''returns the full sorted feed as an API (not sliced)'''
     # todo flesh this out more so that I can go down a level and only return specific publications?

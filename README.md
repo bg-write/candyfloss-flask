@@ -71,7 +71,7 @@ Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxm
 ```python
 def get_soup():
     html_text = requests.get(
-        'RSS URL').text
+        'RSS URL', timeout=10).text
     return BeautifulSoup(html_text, 'xml')
 
 
@@ -150,6 +150,7 @@ Candyfloss follows [Google's Python style guide](https://google.github.io/styleg
 
 - Using `pylint` for code linting (> pip install pylint)
 - Using `yapf` for auto-formatting (> pip install yapf)
+- Including Google's settings file for Vim and `pylintrc`
 
 ### Accessibility
 
