@@ -1,3 +1,6 @@
+'''
+Imports feed modules for testing (need to flesh out all this testing)
+'''
 from feeds.p4k import soup, reviews, index_list, title_list, URL_list, author_list, publication_list, date_list, p4k
 from feeds.gum import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, gum
 from feeds.ad import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, ad
@@ -18,6 +21,7 @@ from feeds.reply_alt import soup, articles, index_list, title_list, URL_list, au
 
 
 def test_p4k():
+    '''Pitchfork'''
     assert soup
     assert reviews
     assert index_list
@@ -30,6 +34,7 @@ def test_p4k():
 
 
 def test_gum():
+    '''Stereogum'''
     assert soup
     assert articles
     assert index_list
@@ -42,6 +47,7 @@ def test_gum():
 
 
 def test_ad():
+    '''Aquarium Drunkard'''
     assert soup
     assert articles
     assert index_list
@@ -54,6 +60,7 @@ def test_ad():
 
 
 def test_ringer():
+    '''The Ringer'''
     assert soup
     assert articles
     assert index_list
@@ -66,6 +73,7 @@ def test_ringer():
 
 
 def test_flux():
+    '''Fluxblog'''
     assert soup
     assert articles
     assert index_list
@@ -78,6 +86,7 @@ def test_flux():
 
 
 def test_MJI():
+    '''Music Journalism Insider'''
     assert soup
     assert articles
     assert index_list
@@ -90,6 +99,7 @@ def test_MJI():
 
 
 def test_penny():
+    '''Penny Fractions'''
     assert soup
     assert articles
     assert index_list
@@ -102,6 +112,7 @@ def test_penny():
 
 
 def test_chi_reader():
+    '''Chicago Reader'''
     assert soup
     assert articles
     assert index_list
@@ -114,6 +125,7 @@ def test_chi_reader():
 
 
 def test_uproxx():
+    '''Uproxx'''
     assert soup
     assert articles
     assert index_list
@@ -126,6 +138,7 @@ def test_uproxx():
 
 
 def test_abundant():
+    '''Abundant Living'''
     assert soup
     assert articles
     assert index_list
@@ -138,6 +151,7 @@ def test_abundant():
 
 
 def test_billboard():
+    '''Billboard'''
     assert soup
     assert articles
     assert index_list
@@ -148,7 +162,9 @@ def test_billboard():
     assert date_list
     assert billboard_chart_beat == billboard_chart_beat
 
+
 def test_no_bells():
+    '''No Bells'''
     assert soup
     assert articles
     assert index_list
@@ -161,6 +177,7 @@ def test_no_bells():
 
 
 def test_quietus():
+    '''The Quietus'''
     assert soup
     assert articles
     assert index_list
@@ -173,6 +190,7 @@ def test_quietus():
 
 
 def test_loud_quiet():
+    '''Loud & Quiet'''
     assert soup
     assert articles
     assert index_list
@@ -185,6 +203,7 @@ def test_loud_quiet():
 
 
 def test_no_depression():
+    '''No Depression'''
     assert soup
     assert articles
     assert index_list
@@ -197,6 +216,7 @@ def test_no_depression():
 
 
 def test_sterlewine():
+    '''So It Goes'''
     assert soup
     assert articles
     assert index_list
@@ -209,6 +229,7 @@ def test_sterlewine():
 
 
 def test_reply_alt():
+    '''Reply Alt'''
     assert soup
     assert articles
     assert index_list
@@ -218,12 +239,3 @@ def test_reply_alt():
     assert publication_list
     assert date_list
     assert reply_alt == reply_alt
-
-
-'''NOTES ON PYTEST
-Files must have format test_XXX.py or XXX_test.py
-Test methods should start wth keyword "test"
-
-> pytest (more details)
-> pytest -q (less details)
-'''

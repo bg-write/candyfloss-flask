@@ -1,10 +1,16 @@
-from bs4 import BeautifulSoup  # pip install bs4
-import requests  # pip install requests
+'''
+Imports Python datetime module
+Imports Beautiful Soup (> pip install bs4)
+Imports requests (> pip install requests)
+Also can take advantage of lxml (> pip install lxml)
+'''
 from datetime import datetime
-# pip install lxml
+from bs4 import BeautifulSoup
+import requests
 
 
 def get_soup():
+    '''GET request'''
     html_text = requests.get(
         'https://pitchfork.com/feed/feed-album-reviews/rss').text
     return BeautifulSoup(html_text, 'xml')
@@ -13,7 +19,8 @@ def get_soup():
 soup = get_soup()
 
 
-def cook_soup():  # in our rss link, each p4k review is in an "item"
+def cook_soup():
+    '''In this RSS link, each review is in an "item"'''
     return soup.find_all('item')
 
 
@@ -29,6 +36,7 @@ date_list = []
 
 
 def deliver_soup():
+    '''append needed info from for loop to our lists'''
     for idx, review in enumerate(reviews):
         # define our variables
         # (we won't print every single one)
@@ -39,8 +47,8 @@ def deliver_soup():
         review_URL = review.find('link').text
         review_ID = review.find('guid').text
         review_date = review.find('pubDate').text
-        review_date_formatted = datetime.strptime(
-            review_date, "%a, %d %b %Y %H:%M:%S %z")
+        review_date_formatted = datetime.strptime(review_date,
+                                                  "%a, %d %b %Y %H:%M:%S %z")
         use_this_date = review_date_formatted.isoformat()
         review_description = review.find('description').text
         review_category = review.find('category').text
@@ -61,13 +69,14 @@ def deliver_soup():
 deliver_soup()
 
 # combine all my lists into a p4k dict
-p4k = [
-    {'idx': idx,
-     'title': title,
-     'URL': URL,
-     'author': author,
-     'publication': publication,
-     'date': date}
-    for idx, title, URL, author, publication, date in zip(index_list, title_list, URL_list, author_list, publication_list, date_list)
-]
+p4k = [{
+    'idx': idx,
+    'title': title,
+    'URL': URL,
+    'author': author,
+    'publication': publication,
+    'date': date
+} for idx, title, URL, author, publication, date in zip(
+    index_list, title_list, URL_list, author_list, publication_list, date_list)
+       ]
 # python feeds/p4k.py

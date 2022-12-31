@@ -1,5 +1,10 @@
-from flask import Flask, render_template  # pip install flask
+'''
+Imports Python datetime module
+Imports Flask (> pip install flask)
+Imports all our feeds from the "feeds" folder
+'''
 from datetime import datetime
+from flask import Flask, render_template
 
 # importing our feeds
 from feeds.p4k import p4k
@@ -45,17 +50,22 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return render_template('hello.html', date=current_date, links=link_dicts_sorted_and_reduced)
+    '''renders our main app page with our new feed and date'''
+    return render_template('hello.html',
+                           date=current_date,
+                           links=link_dicts_sorted_and_reduced)
 
 
 @app.route("/api")
 def hello_api():
+    '''returns the full sorted feed as an API (not sliced)'''
     return link_dicts_sorted
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('404.html'), 404
+    '''404 page'''
+    return render_template('404.html', error=error), 404
 
 
 if __name__ == '__main__':
