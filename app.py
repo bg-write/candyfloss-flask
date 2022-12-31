@@ -1,8 +1,8 @@
-'''
-Imports Python datetime module
-Imports Flask (> pip install flask)
-Imports all our feeds from the "feeds" folder
-'''
+"""
+
+Imports feeds into one feed, sorted and sliced and then rendered.
+Imports also include Python's datetime and Flask.
+"""
 from datetime import datetime
 from flask import Flask, render_template
 
@@ -31,26 +31,14 @@ from feeds.sterlewine import so_it_goes
 from feeds.reply_alt import reply_alt
 
 # combining our feeds into a list of dicts
-link_dicts = \
-    p4k + \
-    gum + \
-    ad + \
-    flux_sub + \
-    MJI + \
-    penny + \
-    chi_reader + \
-    uproxx + \
-    abundant_living + \
-    billboard_chart_beat + \
-    ringer + \
-    no_bells + \
-    quietus + \
-    loud_quiet + \
-    no_depression + \
-    so_it_goes + \
-    reply_alt
+link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx +
+              abundant_living + billboard_chart_beat + ringer + no_bells +
+              quietus + loud_quiet + no_depression + so_it_goes + reply_alt)
 
 # ordering our combined feed by date
+# 1) pass in our combined feed to sort (link_dicts)
+# 2) our anonymous function returning our key, which is our date
+# 3) sorting our feed in reverse (descending) order
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 
 # reducing our feed to return a specific set number
@@ -65,7 +53,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    '''renders our main app page with our new feed and date'''
+    """renders our main app page with our new feed and date"""
     return render_template('hello.html',
                            date=current_date,
                            links=link_dicts_sorted_and_reduced)
@@ -73,14 +61,14 @@ def hello_world():
 
 @app.route('/api')
 def hello_api():
-    '''returns the full sorted feed as an API (not sliced)'''
-    # todo flesh this out more so that I can go down a level and only return specific publications?
+    """returns the full sorted feed as an API (not sliced)"""
+    # TODO return specific pubs i.e. '/api/p4k' only returns Pitchfork links
     return link_dicts_sorted
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    '''404 page'''
+    """404 page"""
     return render_template('404.html', error=error), 404
 
 

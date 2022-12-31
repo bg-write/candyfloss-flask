@@ -1,16 +1,16 @@
-'''
-Imports Python datetime module
-Imports Beautiful Soup (> pip install bs4)
-Imports requests (> pip install requests)
-Also can take advantage of lxml (> pip install lxml)
-'''
+"""
+
+Call and clean an RSS feed and pull only the information we need.
+Imports include Python's datetime, Beautiful Soup, and requests.
+Can also import lxml when RSS url is not available.
+"""
 from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 
 
 def get_soup():
-    '''GET request'''
+    """GET request"""
     html_text = requests.get(
         'https://pitchfork.com/feed/feed-album-reviews/rss', timeout=10).text
     return BeautifulSoup(html_text, 'xml')
@@ -20,7 +20,7 @@ soup = get_soup()
 
 
 def cook_soup():
-    '''In this RSS link, each review is in an "item"'''
+    """In this RSS link, each review is in an <item/>"""
     return soup.find_all('item')
 
 
@@ -36,7 +36,7 @@ date_list = []
 
 
 def deliver_soup():
-    '''append needed info from for loop to our lists'''
+    """append needed info from for loop to our lists"""
     for idx, review in enumerate(reviews):
         # define our variables
         # (we won't print every single one)

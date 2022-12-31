@@ -135,7 +135,7 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 ### CSS
 
-Candyfloss's CSS is done all in `styles.css` and is inspired by the print covers of the London Review of Books. Media queries are currently set for break points at 992px (most iPads and Surface Pros), 600px (most iPhones and Samsung Galaxies), and 360px (for the Galaxy Fold). Color CSS variables are defined as:
+Candyfloss's CSS is all done in `styles.css` and is inspired by the print covers of the London Review of Books. Media queries are currently set for break points at 992px (most iPads and Surface Pros), 600px (most iPhones and Samsung Galaxies), and 360px (for the Galaxy Fold). Color CSS variables are defined as:
 
 ```CSS
 --black: #0d0d0d;
@@ -146,10 +146,10 @@ Candyfloss's CSS is done all in `styles.css` and is inspired by the print covers
 
 ### The Code Itself
 
-Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possibly. This involves the following:
+Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possible. This involves the following:
 
-- Using `pylint` for code linting (> pip install pylint)
-- Using `yapf` for auto-formatting (> pip install yapf)
+- Using `pylint` for code linting
+- Using `yapf` for auto-formatting
 - Including Google's settings file for Vim and `pylintrc`
 
 ### Accessibility
