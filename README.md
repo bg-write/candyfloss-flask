@@ -64,9 +64,9 @@ I first find a working RSS feed for a publication. If a website doesn't promote 
 
 ### 2) Create a Publication's Feed
 
-Each file in the `feeds` folder is where I use Beautiful Soup to call and clean up the RSS for each publication.
+Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication.
 
-**"Get" the soup**: make my GET request
+**"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for genuine web scraping when RSS is not available)
 
 ```python
 def get_soup():
