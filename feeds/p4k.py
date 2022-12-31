@@ -12,7 +12,7 @@ import requests
 def get_soup():
     '''GET request'''
     html_text = requests.get(
-        'https://pitchfork.com/feed/feed-album-reviews/rss').text
+        'https://pitchfork.com/feed/feed-album-reviews/rss', timeout=10).text
     return BeautifulSoup(html_text, 'xml')
 
 
@@ -41,26 +41,26 @@ def deliver_soup():
         # define our variables
         # (we won't print every single one)
         review_publication = 'Pitchfork'
-        review_RSS = 'https://pitchfork.com/feed/feed-album-reviews/rss'
+        # review_RSS = 'https://pitchfork.com/feed/feed-album-reviews/rss'
         review_index = idx
         review_title = review.find('title').text
-        review_URL = review.find('link').text
-        review_ID = review.find('guid').text
+        review_url = review.find('link').text
+        # review_ID = review.find('guid').text
         review_date = review.find('pubDate').text
         review_date_formatted = datetime.strptime(review_date,
                                                   "%a, %d %b %Y %H:%M:%S %z")
         use_this_date = review_date_formatted.isoformat()
-        review_description = review.find('description').text
-        review_category = review.find('category').text
-        media_keywords = review.find('media:keywords').text if review.find(
-            'media:keywords') else ''
+        # review_description = review.find('description').text
+        # review_category = review.find('category').text
+        # media_keywords = review.find('media:keywords').text if review.find(
+        #     'media:keywords') else ''
         review_author = review.find('dc:creator').text
-        review_publisher = review.find('dc:publisher').text
+        # review_publisher = review.find('dc:publisher').text
 
         # fill in our lists with our loop variable values
         index_list.append(review_index)
         title_list.append(review_title)
-        URL_list.append(review_URL)
+        URL_list.append(review_url)
         author_list.append(review_author)
         publication_list.append(review_publication)
         date_list.append(use_this_date)

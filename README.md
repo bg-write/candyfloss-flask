@@ -133,10 +133,41 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 ## Candyfloss Style Guide
 
+### CSS
+
+Candyfloss's CSS is done all in `styles.css` and is inspired by the print covers of the London Review of Books. Media queries are currently set for break points at 992px (most iPads and Surface Pros), 600px (most iPhones and Samsung Galaxies), and 360px (for the Galaxy Fold). Color CSS variables are defined as:
+
+```CSS
+--black: #0d0d0d;
+--white: #ffffff;
+--gold: #ffd900;
+--blue: #0026ff;
+```
+
+### The Code Itself
+
 Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possibly. This involves the following:
 
 - Using `pylint` for code linting (> pip install pylint)
 - Using `yapf` for auto-formatting (> pip install yapf)
+
+### Accessibility
+
+The deployed Candyfloss app receives an overall pass on mobile and desktop Lighthouse reports. Areas of improvement include addressing the performance on mobile due to speeds of first contentful paint, time to interactive, and total blocking time.
+
+Desktop:
+
+- Performance: 100
+- Accessibility: 100
+- Best Practice: 92
+- SEO: 90
+
+Mobile:
+
+- Performance: 84
+- Accessibility: 100
+- Best Practice: 92
+- SEO: 92
 
 ---
 
