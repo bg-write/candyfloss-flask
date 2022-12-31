@@ -123,10 +123,10 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 ## Candyfloss's Architecture
 
-- `feeds`: the web scrapping files for each publication and an overall test file (currently moving into the top level)
+- `feeds`: the web scrapping files for each publication
 - `static`: my used images and my overall `styles.css` file
 - `templates`: The actual web templates you see on the browser
-- `tests`: Where I test my `app.py` variables
+- `tests`: Where I test `app.py` and all the feeds in the `feeds` folder using pytest
 - `app.py`: where I combine all my feeds into one cleaned up and organized feed and render it to `hello.html` in the `templates` folder
 
 ## Tech Stack & Tools
@@ -150,7 +150,6 @@ More can be found in `requirements.txt`
 
 - Add automated lint and code style enforcement and further utilize pycodestyle
 - Adopt Google's Python coding convention & style guide <https://google.github.io/styleguide/pyguide.html>
-- Move my tests out into the overall Test folder
 - Use classes to further abstract out some of my repeating logic. A DataSource class? Having properties for feedurl and implementing get_soup?
 - Add a DB where I keep the list of data sources I want to pull from - to dynamically change what my feed displays, without having to change code
 - Are there too many links?

@@ -1,21 +1,20 @@
-from p4k import soup, reviews, index_list, title_list, URL_list, author_list, publication_list, date_list, p4k
-from gum import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, gum
-from ad import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, ad
-from ringer import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, ringer
-from flux_sub import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, flux_sub
-from MJI import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, MJI
-from penny import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, penny
-from chi_reader import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, chi_reader
-from uproxx import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, uproxx
-from abundant_living import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, abundant_living
-from billboard_chart_beat import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, billboard_chart_beat
-# from bandcamp import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, bandcamp
-from no_bells import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_bells
-from quietus import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, quietus
-from loud_quiet import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, loud_quiet
-from no_depression import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_depression
-from sterlewine import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, so_it_goes
-from reply_alt import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, reply_alt
+from feeds.p4k import soup, reviews, index_list, title_list, URL_list, author_list, publication_list, date_list, p4k
+from feeds.gum import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, gum
+from feeds.ad import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, ad
+from feeds.ringer import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, ringer
+from feeds.flux_sub import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, flux_sub
+from feeds.MJI import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, MJI
+from feeds.penny import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, penny
+from feeds.chi_reader import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, chi_reader
+from feeds.uproxx import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, uproxx
+from feeds.abundant_living import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, abundant_living
+from feeds.billboard_chart_beat import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, billboard_chart_beat
+from feeds.no_bells import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_bells
+from feeds.quietus import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, quietus
+from feeds.loud_quiet import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, loud_quiet
+from feeds.no_depression import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, no_depression
+from feeds.sterlewine import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, so_it_goes
+from feeds.reply_alt import soup, articles, index_list, title_list, URL_list, author_list, publication_list, date_list, reply_alt
 
 
 def test_p4k():
@@ -148,19 +147,6 @@ def test_billboard():
     assert publication_list
     assert date_list
     assert billboard_chart_beat == billboard_chart_beat
-
-
-# def test_bandcamp():
-#     assert soup
-#     assert articles
-#     assert index_list
-#     assert title_list
-#     assert URL_list
-#     assert author_list
-#     assert publication_list
-#     assert date_list
-#     assert bandcamp == bandcamp
-
 
 def test_no_bells():
     assert soup
