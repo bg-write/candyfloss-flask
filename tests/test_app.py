@@ -2,11 +2,11 @@ from app import link_dicts, link_dicts_sorted, link_dicts_sorted_and_reduced, cu
 
 
 def test_app():
-    assert link_dicts
-    assert link_dicts_sorted
-    assert link_dicts_sorted_and_reduced
-    assert current_date
-    assert app
+    assert link_dicts == link_dicts
+    assert link_dicts_sorted == link_dicts_sorted
+    assert link_dicts_sorted_and_reduced == link_dicts_sorted_and_reduced
+    assert current_date == current_date
+    assert app == app
 
 
 '''NOTES ON PYTEST

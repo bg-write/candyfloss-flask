@@ -126,8 +126,8 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 - `feeds`: the web scrapping files for each publication and an overall test file (currently moving into the top level)
 - `static`: my used images and my overall `styles.css` file
 - `templates`: The actual web templates you see on the browser
+- `tests`: Where I test my `app.py` variables
 - `app.py`: where I combine all my feeds into one cleaned up and organized feed and render it to `hello.html` in the `templates` folder
-- `test_app.py`: Where I test my new variables created on `app.py`.
 
 ## Tech Stack & Tools
 
