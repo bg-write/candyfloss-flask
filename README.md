@@ -16,7 +16,7 @@ Candyfloss displays the 50 most recent links from several outlets (full list bel
 
 ## The Problem
 
-As a music journalist, I read a lot of media. Social media is an easy way to keep track of new links from my favorite writers and outlets found on various types of media: websites, newsletters, video channels, and more. I'm trying to spend less time on social media. So I thought: is there a way to still see all the links I want without the baggage of social media?
+As a music journalist, I read _a lot_ of media. Social media is an easy way to keep track of new content from my favorite writers and outlets throughout various types of media: websites, newsletters, video channels, and more. I'm trying to spend less time on social media. So I thought: is there a way to still see all the links I want without the baggage of social media?
 
 ## The Solution
 
@@ -34,7 +34,7 @@ A fellow music journalist or music fan who wants to discover some of the best mu
 
 Python is one of my favorite languages; I love its balance of power and simplicity. I mostly work in JavaScript and wanted more hands-on work with Python, so I decided to use Python to make something I would actually use myself. I also wanted to learn Beautiful Soup, a cool Python library for parsing structured data.
 
-I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python.)
+I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; perfect for this project and can recommend for most simple web apps.)
 
 ---
 
@@ -46,7 +46,7 @@ In your IDE of choice, in an open terminal window, enter and run `flask --debug 
 
 ## Candyfloss (local) API
 
-To view the API for the entire feed, at the end of the local server URL, add "/api." (The rendered feed only displays the most recent 50 links.)
+To view the API for the entire feed, at the end of the local server URL, add "/api." (The rendered feed will only display the most recent 50 links.)
 
 ## Running Tests
 
@@ -102,11 +102,13 @@ PUBLICATION = [
 ]
 ```
 
-It can be challenging when information is missing (mostly publications not crediting their authors) or isn't formatted like most RSS feeds (i.e. time and dates, which I then clean up and standardize via Python's `datetime` functionality).
+It can be challenging when information is missing (mostly from publications not crediting their authors) or isn't formatted like most RSS feeds (i.e. time and dates, which I then clean up and standardize via Python's `datetime` functionality).
+
+WINTER 2023 NOTE: One of my goals for this step is to utilize classes more and refactor this process to give more clear abstraction for what defines a publication.
 
 ### 3) Combine the Feeds into THE Feed
 
-In `app.py`, I import all the feed dicts, combine them into one new dict, and then use a sorting function to order this new overall feed by each link's date, and slice away any publications after a set number (which, for now, is 50). This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
+In `app.py`, I import all the publication feeds, combine them into one feed, and then use a sorting function to order this new feed by each link's date, and slice away any publication links after a set number (which, for now, is 50). This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
 
 ```python
 # combining our feeds
@@ -123,11 +125,11 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 ## Candyfloss's Architecture
 
-- `feeds`: the web scrapping files for each publication
-- `static`: my used images and my overall `styles.css` file
-- `templates`: The actual web templates you see on the browser
-- `tests`: Where I test `app.py` and all the feeds in the `feeds` folder using pytest
-- `app.py`: where I combine all my feeds into one cleaned up and organized feed and render it to `hello.html` in the `templates` folder
+- `feeds`: Holds the web scraping for each publication
+- `static`: Holds my used images and `styles.css`
+- `templates`: The HTML you see on the browser
+- `tests`: Where I test `app.py` and `feeds` using pytest
+- `app.py`: where I combine the feeds into one clean and organized feed, then rendered to `templates`
 
 ---
 
@@ -146,7 +148,7 @@ Candyfloss's CSS is all done in `styles.css` and is inspired by the print covers
 
 ### The Code Itself
 
-Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possible. This involves the following:
+Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possible. This involves:
 
 - Using `pylint` for code linting
 - Using `yapf` for auto-formatting
@@ -154,7 +156,7 @@ Candyfloss follows [Google's Python style guide](https://google.github.io/styleg
 
 ### Accessibility
 
-The deployed Candyfloss app receives an overall pass on mobile and desktop Lighthouse reports. Areas of improvement include addressing the performance on mobile due to speeds of first contentful paint, time to interactive, and total blocking time.
+The deployed Candyfloss app received an overall pass on mobile and desktop Lighthouse reports. Areas of improvement include addressing the performance on mobile due to speeds of first contentful paint, time to interactive, and total blocking time.
 
 Desktop:
 
@@ -174,18 +176,18 @@ Mobile:
 
 ## Tech Stack & Tools
 
-- Python (3.8.6)
-- Flask
-- Beautiful Soup
-- Requests
-- lxml
-- pytest
-- pylint
-- yapf
+- [Python](https://www.python.org/) (3.8.6)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+- [Requests](https://requests.readthedocs.io/en/latest/)
+- [lxml](https://lxml.de/)
+- [pytest](https://docs.pytest.org/en/7.2.x/)
+- [pylint](https://pylint.org/)
+- [yapf](https://pypi.org/project/yapf/)
 - Visual Studio Code
-- PythonAnywhere
-- Google's "RSS Subscription Extension" Chrome plugin
-- Icons8 (for the current corn favicon)
+- [PythonAnywhere](https://www.pythonanywhere.com/)
+- Google's "[RSS Subscription Extension](https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd)" Chrome plugin
+- [Icons8](https://icons8.com/) (for the current corn favicon)
 
 More can be found in `requirements.txt`
 
@@ -193,22 +195,19 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Use classes to further abstract out some of my repeating logic. A DataSource class? Having properties for feedurl and implementing get_soup?
-- Add a DB where I keep the list of data sources I want to pull from - to dynamically change what my feed displays, without having to change code
+- Use classes to further abstract some of my repeating logic. A `DataSource` class? Having properties for `feedurl` and implementing `get_soup`?
+- Add a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code
 - Are there too many links?
 - Any way to utilize data analysis, machine learning, or even game logic without going overkill?
 - Flesh out metadata
-- Add a search field for my feed of publications
+- Add a search field on the UI
 - Flesh out 404 page
 
 ---
 
 ## How Can YOU Contribute?
 
-Any way you can! I'm especially looking for:
-
-- Help to flesh out my Python automated testing
-- Suggestions on new outlets I should add to Candyfloss ... bonus points if you can add them yourself!
+Any way you can! I'm especially looking for help to flesh out my Python automated testing, and suggestions on new outlets I should add to Candyfloss.
 
 ---
 
@@ -233,10 +232,10 @@ Any way you can! I'm especially looking for:
 - Reply Alt (substack)
 
 ---
-  
+
 ## Closing Credits
 
-A special shout-out to Nish Tahir for giving some excellent and thoughtful feedback on an early version of this app. [Pallets's  intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. I also wish to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
+A special shout-out to Nish Tahir for giving some excellent and thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. I also wish to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
 
 ---
 
