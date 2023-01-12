@@ -77,7 +77,7 @@ platformdirs==2.5.4
 pluggy==0.13.1
 promise==2.3
 prompt-toolkit==3.0.32
-protobuf==3.17.3
+protobuf==3.18.3
 psutil==5.9.4
 psycopg2==2.9.2
 psycopg2-binary==2.8.6
