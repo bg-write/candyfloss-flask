@@ -193,7 +193,6 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Fully adopt Google's Python coding convention & style guide <https://google.github.io/styleguide/pyguide.html>
 - Use classes to further abstract out some of my repeating logic. A DataSource class? Having properties for feedurl and implementing get_soup?
 - Add a DB where I keep the list of data sources I want to pull from - to dynamically change what my feed displays, without having to change code
 - Are there too many links?
@@ -241,4 +240,4 @@ A special shout-out to Nish Tahir for giving some excellent and thoughtful feedb
 
 ---
 
-© 2022 Brady Gerber. All Rights Reserved.
+© 2023 Brady Gerber. All Rights Reserved.
