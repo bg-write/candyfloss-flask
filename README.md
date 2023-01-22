@@ -150,7 +150,7 @@ Candyfloss's CSS is all done in `styles.css` and is inspired by the print covers
 
 Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possible. This involves:
 
-- Using `pylint` for code linting
+- Using `pylint` for automated code linting
 - Using `yapf` for auto-formatting
 - Including Google's settings file for Vim and `pylintrc`
 
@@ -184,7 +184,7 @@ Mobile:
 - [pytest](https://docs.pytest.org/en/7.2.x/)
 - [pylint](https://pylint.org/)
 - [yapf](https://pypi.org/project/yapf/)
-- Visual Studio Code
+- [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
 - [PythonAnywhere](https://www.pythonanywhere.com/)
 - Google's "[RSS Subscription Extension](https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd)" Chrome plugin
 - [Icons8](https://icons8.com/) (for the current corn favicon)
