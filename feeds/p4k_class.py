@@ -1,7 +1,6 @@
 """
 
 Call and clean our RSS feed with only the information we need.
-Imports include py's datetime, Beautiful Soup, and requests.
 Can also import lxml when RSS url is not available.
 """
 from datetime import datetime
@@ -10,17 +9,7 @@ import requests
 
 
 class Outlet(object):
-    """Online feeds with URLs to scrap and display its content to users.
-
-  Attributes:
-    feed_url: i.e. https://pitchfork.com/feed/feed-album-reviews/rss
-    publication: i.e. 'Pitchfork'
-    idx: i.e. 7
-    title: i.e. 'Jumping/Dancing/Fighting EP'
-    author: i.e. 'Brady Gerber'
-    url: i.e. 'https://pitchfork.com/reviews/albums/hammok-jumping-dancing-fighting-ep'
-    date: i.e. '2022-12-30T05:00:00+00:00'
-  """
+    """Feeds to scrap and display to our app."""
 
     def __init__(self,
                  feed_url='FEED_URL',
@@ -46,7 +35,7 @@ class Outlet(object):
         )
 
     def console(self):
-        """Prints our string representation to the console and each attribute."""
+        """Prints our object string representation and each attr."""
         print(self)
         print(self.feed_url)
         print(self.publication)
@@ -57,7 +46,7 @@ class Outlet(object):
         print(self.date)
 
     def get_soup(self):
-        """Make our initial GET request to our RSS feed."""
+        """Makes our initial GET request to our RSS feed."""
         html_text = requests.get(self.feed_url, timeout=10).text
         return BeautifulSoup(html_text, 'xml')
 
@@ -68,13 +57,13 @@ soup = pitchfork.get_soup()
 
 
 def cook_soup():
-    """In this specific RSS link, each review is in an <item/> tag."""
+    """In this specific feed_url, each review is in an <item/> tag."""
     return soup.find_all('item')
 
 
 articles = cook_soup()
 
-# Define the empty lists we'll soon fill up with deliver_soup().
+# Define the empty lists we'll soon fill up with deliver_soup() and use later.
 idx_list = []
 title_list = []
 author_list = []
@@ -83,7 +72,15 @@ date_list = []
 
 
 def deliver_soup():
-    """Append only the info we need from our articles soup using a For loop."""
+    """Append only the info we need from feed_url using a for loop.
+    
+    FORMATTING DATE & TIME:
+    Standard time for this app: '%a, %d %b %Y %H:%M:%S %z'
+    i.e. '2022-12-30T05:00:00+00:00'
+    Be mindful that all RSS feeds format date and time differently
+    i.e. Change lowercase %z to uppercase %Z to account for time zone differences
+    For more on py's datetime: https://docs.python.org/3/library/datetime.html
+    """
     for idx, article in enumerate(articles):
         idx = idx
         title = article.find('title').text
@@ -102,7 +99,7 @@ def deliver_soup():
 
 deliver_soup()
 
-# zip all my lists, now full of the data we need, into a list of dictionaries for this specific outlet
+# zip all updated lists into a list of dictionaries for this specific outlet
 p4k = [
     {
         'idx': idx,
@@ -114,6 +111,5 @@ p4k = [
     } for idx, title, content_url, author, date in zip(
         idx_list, title_list, content_url_list, author_list, date_list)
 ]
-print(p4k)
 
 # python feeds/p4k_class.py
