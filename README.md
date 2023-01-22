@@ -193,7 +193,7 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Flesh out pytest to now account for object refactoring
+- Flesh out `pytest` to now account for object refactoring and more closely follow Google's Python style guide
 - Further utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
 - Update local app API to be more dynamic and return only specified outlets
 - Add a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code
