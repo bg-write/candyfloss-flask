@@ -104,7 +104,7 @@ p4k = [
     {
         'idx': idx,
         'title': title,
-        'content_url': content_url,
+        'URL': content_url,
         'author': author,
         'publication': pitchfork.publication,  # same value for each dict
         'date': date

@@ -102,9 +102,7 @@ PUBLICATION = [
 ]
 ```
 
-It can be challenging when information is missing (mostly from publications not crediting their authors) or isn't formatted like most RSS feeds (i.e. time and dates, which I then clean up and standardize via Python's `datetime` functionality).
-
-WINTER 2023 NOTE: One of my goals for this step is to utilize classes more and refactor this process to give more clear abstraction for what defines a publication.
+REFACTORING NOTES: Since deploying this app, I've refactored this step to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began, and `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing (mostly from publications not crediting their authors) or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
 
 ### 3) Combine the Feeds into THE Feed
 
@@ -195,13 +193,17 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Use classes to further abstract some of my repeating logic. A `DataSource` class? Having properties for `feedurl` and implementing `get_soup`?
+- Flesh out pytest to now account for object refactoring
+- Further utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
+- Update local app API to be more dynamic and return only specified outlets
 - Add a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code
+- Refactor current feeds to incorporate new class structures
+- Add more publications!
 - Are there too many links?
-- Any way to utilize data analysis, machine learning, or even game logic without going overkill?
-- Flesh out metadata
+- Flesh out the app's overall metadata
 - Add a search field on the UI
-- Flesh out 404 page
+- Expand upon the current 404 page
+- Any way to utilize relative data analysis, machine learning, or game logic?
 
 ---
 

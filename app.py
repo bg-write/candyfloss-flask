@@ -1,13 +1,13 @@
 """
 
-Imports feeds into one feed, sorted and sliced and then rendered.
-Imports also include Python's datetime and Flask.
+Import feeds into one feed: sort, slice, then render.
 """
 from datetime import datetime
 from flask import Flask, render_template
 
 # importing our feeds
-from feeds.p4k import p4k
+# from feeds.p4k import p4k
+from feeds.p4k_class import p4k
 from feeds.gum import gum
 from feeds.ad import ad
 from feeds.ringer import ringer
@@ -30,22 +30,21 @@ from feeds.no_depression import no_depression
 from feeds.sterlewine import so_it_goes
 from feeds.reply_alt import reply_alt
 
-# combining our feeds into a list of dicts
+# Combining our feeds into a list of dicts
 link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx +
               abundant_living + billboard_chart_beat + ringer + no_bells +
               quietus + loud_quiet + no_depression + so_it_goes + reply_alt)
-
-# ordering our combined feed by date
-# 1) pass in our combined feed to sort (link_dicts)
-# 2) our anonymous function returning our key, which is our date
-# 3) sorting our feed in reverse (descending) order
+'''Ordering our combined feed by date.
+1) pass in our combined feed "link_dicts" to then sort.
+2) Our anonymous function returns our key, which is our date.
+3) Sort our feed in reverse (descending) order by our new key.
+'''
 link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 
-# reducing our feed to return a specific set number
+# Reducing our feed to return a specific number of articles.
 link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 # Universal Time Coordinated (UTC/GMT time)
-# https://www.geeksforgeeks.org/python-datetime-strptime-function/
 current_date = datetime.now().strftime('%b %d, %Y')
 
 app = Flask(__name__)
@@ -53,7 +52,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    """renders our main app page with our new feed and date"""
+    """Renders our main app page with our new feed and date."""
     return render_template('hello.html',
                            date=current_date,
                            links=link_dicts_sorted_and_reduced)
@@ -61,7 +60,7 @@ def hello_world():
 
 @app.route('/api')
 def hello_api():
-    """returns the full sorted feed as an API (not sliced)"""
+    """Returns our full sorted feed as an API (not sliced)."""
     # TODO return specific pubs i.e. '/api/p4k' only returns Pitchfork links
     return link_dicts_sorted
 
