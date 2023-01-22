@@ -46,7 +46,9 @@ In your IDE of choice, in an open terminal window, enter and run `flask --debug 
 
 ## Candyfloss (local) API
 
-To view the API for the entire feed, at the end of the local server URL, add "/api." (The rendered feed will only display the most recent 50 links.)
+To view the API for the entire feed, at the end of the local server URL, add "/api" (The rendered feed will only display the most recent 50 links).
+
+To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter ie. "Pitchfork" is uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available on the API.
 
 ## Running Tests
 
@@ -193,9 +195,8 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Flesh out `pytest` to now account for object refactoring and more closely follow Google's Python style guide
+- Update `pytest` to now account for object refactoring and more closely follow Google's Python style guide
 - Further utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
-- Update local app API to be more dynamic and return only specified outlets
 - Add a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code
 - Refactor current feeds to incorporate new class structures
 - Add more publications!

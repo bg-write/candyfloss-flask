@@ -61,8 +61,15 @@ def hello_world():
 @app.route('/api')
 def hello_api():
     """Returns our full sorted feed as an API (not sliced)."""
-    # TODO return specific pubs i.e. '/api/p4k' only returns Pitchfork links
     return link_dicts_sorted
+
+
+@app.route('/api/<outlet>')
+def hello_api_outlet(outlet):
+    """Returns specific outlets i.e. '/api/Pitchfork'"""
+    return [
+        item for item in link_dicts_sorted if item["publication"] == outlet
+    ]
 
 
 @app.errorhandler(404)
