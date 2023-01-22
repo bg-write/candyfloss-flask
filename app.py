@@ -4,8 +4,8 @@ Import feeds into one feed: sort, slice, then render.
 """
 from datetime import datetime
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
-# importing our feeds
 # from feeds.p4k import p4k
 from feeds.p4k_class import p4k
 from feeds.gum import gum
@@ -49,6 +49,36 @@ current_date = datetime.now().strftime('%b %d, %Y')
 
 app = Flask(__name__)
 
+# Adding config for using SQLite and initializing database instance "site.db".
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+db = SQLAlchemy(app)
+
+
+class Links(db.Model):
+    """SQLAlchemy will convert our model class into SQL.
+    
+    More on generic types: https://docs.sqlalchemy.org/en/13/core/type_basics.html
+    For the initial db install:
+    > python
+    >>> from app import db
+    >>> app.app_context().push()
+    >>> db.create_all()
+    >>> exit()
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    idx = db.Column(db.Integer, unique=False, nullable=False)
+    title = db.Column(db.String(255), unique=True, nullable=False)
+    URL = db.Column(db.String(255), unique=True, nullable=False)
+    author = db.Column(db.String(255), unique=False, nullable=False)
+    publication = db.Column(db.String(255), unique=False, nullable=False)
+    date = db.Column(db.DateTime, default=current_date)
+
+    def __repr__(self):
+        """Represents the object of the data table."""
+        return (
+            f'{self.id}/{self.idx}: {self.title} ({self.author} / {self.publication}) ({self.URL}) ({self.date})'
+        )
+
 
 @app.route('/')
 def hello_world():
@@ -70,6 +100,14 @@ def hello_api_outlet(outlet):
     return [
         item for item in link_dicts_sorted if item["publication"] == outlet
     ]
+
+
+@app.route('/db', methods=['GET'])
+def hello_db():
+    """Renders our SQLite "site.db" database."""
+    # todo need to actually connect db to current API
+    # todo watch the end of this video and onward https://www.youtube.com/watch?v=hbDRTZarMUw
+    return render_template('db.html')
 
 
 @app.errorhandler(404)

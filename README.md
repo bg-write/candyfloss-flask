@@ -44,11 +44,11 @@ The deployed app: <https://www.candyfloss.app/>
 
 In your IDE of choice, in an open terminal window, enter and run `flask --debug run` and open the development server URL provided in the terminal output.
 
-## Candyfloss (local) API
+## Candyfloss (Local Instance) API
 
-To view the API for the entire feed, at the end of the local server URL, add "/api" (The rendered feed will only display the most recent 50 links).
+To view the API for the entire feed, at the end of the local server URL, add "/api" (the rendered feed will only display the most recent 50 links).
 
-To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter ie. "Pitchfork" is uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available on the API.
+To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" is uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available to view on the API.
 
 ## Running Tests
 
@@ -197,7 +197,7 @@ More can be found in `requirements.txt`
 
 - Update `pytest` to now account for object refactoring and more closely follow Google's Python style guide
 - Further utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
-- Add a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code
+- Incorporate a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code (starting with SQLite and SQLAlchemy)
 - Refactor current feeds to incorporate new class structures
 - Add more publications!
 - Are there too many links?
