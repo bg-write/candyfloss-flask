@@ -36,7 +36,7 @@ date_list = []
 
 
 def deliver_soup():
-    """append needed info from for loop to our lists"""
+    """Append only the info we need from a For Loop into our lists"""
     for idx, review in enumerate(reviews):
         # define our variables
         # (we won't print every single one)
