@@ -10,17 +10,17 @@ Hacker News, but only about music.
 
 ## Candyfloss Explained in One Minute
 
-**Candyfloss** is a digital daily newspaper curating the best music news and longform writing (and occasional sports link). Now you don't need Twitter to keep up on the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books.
+**Candyfloss** is a digital daily newspaper curating the best music news and longform writing (and occasional sports link). Now you don't need Twitter to keep up on the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight against the endless scroll.
 
-Candyfloss displays the 50 most recent links from several outlets (full list below) and is set to refresh at the top of every hour. All you have to do is open up Candyfloss, click on whatever links you want, and enjoy!
+Candyfloss displays the 50 most recent links from several outlets (full list below) and is set to refresh at the top of every hour. All you have to do is open Candyfloss, click on whatever links you want, and enjoy!
 
 ## The Problem
 
-As a music journalist, I read _a lot_ of media. Social media is an easy way to keep track of new content from my favorite writers and outlets throughout various types of media: websites, newsletters, video channels, and more. I'm trying to spend less time on social media. So I thought: is there a way to still see all the links I want without the baggage of social media?
+As a music journalist, I read _a lot_ of media. Social media is an easy way to keep track of new content from my favorite writers and outlets on various types of media: websites, newsletters, video channels, and more. I'm also trying to spend less time on social media. So I thought: is there a way to still see all the links I want without the baggage of social media?
 
 ## The Solution
 
-I essentially created my own RSS reader, but as a web app that's meant to be shared with my colleagues, and styled to be simple and only show a set amount of links to fight the endless scroll.
+I essentially created my own RSS reader, but as a simple web app that's meant to be shared with my colleagues.
 
 ## The Goal
 
@@ -32,9 +32,9 @@ A fellow music journalist or music fan who wants to discover some of the best mu
 
 ## Why Python?
 
-Python is one of my favorite languages; I love its balance of power and simplicity. I mostly work in JavaScript and wanted more hands-on work with Python, so I decided to use Python to make something I would actually use myself. I also wanted to learn Beautiful Soup, a cool Python library for parsing structured data.
+Python is one of my favorite languages; I love its balance of power and simplicity. I mostly work in JavaScript and wanted more hands-on work with Python, so I decided to use Python to make something I would use myself. I also wanted to learn Beautiful Soup, a neat Python library for parsing structured data.
 
-I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; perfect for this project and can recommend for most simple web apps.)
+I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; it's perfect for this project and recommended for most simple web apps.)
 
 ---
 
@@ -48,11 +48,11 @@ In your IDE of choice, in an open terminal window, enter and run `flask --debug 
 
 To view the API for the entire feed, at the end of the local server URL, add "/api" (the rendered feed will only display the most recent 50 links).
 
-To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" is uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available to view on the API.
+To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" needs to be uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available to view on the API and how to spell them.
 
 ## Running Tests
 
-In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder.
+In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder. (More testing to come.)
 
 ---
 
@@ -60,9 +60,7 @@ In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` 
 
 ### 1) Find and Test the RSS URLs
 
-I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can usually find it by typing "/rss" or "/feed" at the end of a URL, or use Google's "RSS Subscription Extension" Chrome plugin.
-
-(To publications that make their RSS feeds easy to find: Thank you!)
+I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can usually find it by typing "/rss" or "/feed" at the end of a URL, or use Google's "RSS Subscription Extension" Chrome plugin. (To publications that make their RSS feeds easy to find: Thank you!)
 
 ### 2) Create a Publication's Feed
 
@@ -90,7 +88,7 @@ def cook_soup():  # each article is in an <item/>
 articles = cook_soup()
 ```
 
-**"Deliver" the soup**: use a `for` loop to append the info I need into my empty lists, which I then combine into a new dict, which looks like:
+**"Deliver" the soup**: use a for loop to append the info I need into my empty lists, which I then combine into a new dict, which looks like:
 
 ```python
 PUBLICATION = [
@@ -104,11 +102,11 @@ PUBLICATION = [
 ]
 ```
 
-REFACTORING NOTES: Since deploying this app, I've refactored this step to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began, and `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing (mostly from publications not crediting their authors) or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
+REFACTORING NOTES: Since deploying this app, I've refactored this step to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began. `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing, mostly from publications not crediting their authors, or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
 
 ### 3) Combine the Feeds into THE Feed
 
-In `app.py`, I import all the publication feeds, combine them into one feed, and then use a sorting function to order this new feed by each link's date, and slice away any publication links after a set number (which, for now, is 50). This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
+In `app.py`, I import all the publication feeds, combine them into one feed, and then use a sorting function to order this new feed by each link's date, and slice away any publication links after a set number (which for now is 50). This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
 
 ```python
 # combining our feeds
