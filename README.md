@@ -196,8 +196,8 @@ More can be found in `requirements.txt`
 ## Next Steps (my "Icebox")
 
 - Update `pytest` to now account for object refactoring and more closely follow Google's Python style guide
-- Further utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
-- Incorporate a database where I keep the list of data sources handy to dynamically change what my feed displays without having to change code (starting with SQLite and SQLAlchemy)
+- Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
+- Connect the API to a database to then dynamically change what my app feed displays (starting with SQLite and SQLAlchemy)
 - Refactor current feeds to incorporate new class structures
 - Add more publications!
 - Are there too many links?
@@ -238,7 +238,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 
 ## Closing Credits
 
-A special shout-out to Nish Tahir for giving some excellent and thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. I also wish to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
+A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also wish to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
 
 ---
 
