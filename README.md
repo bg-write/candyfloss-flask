@@ -2,7 +2,7 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/bg-write/candyfloss-flask?style=flat-square)](https://github.com/bg-write/candyfloss-flask/issues)
 
-![Candyfloss home page](./static/candyfloss-home-page.png)
+![Candyfloss home page](./static/candyfloss-home-page-full.png)
 
 ## Candyfloss Explained in One Sentence
 
