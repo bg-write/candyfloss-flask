@@ -5,26 +5,20 @@ Do not use "assert" statements for validating argument values of a public API; a
 If an exception is desired in the latter cases, use a raise statement.
 https://google.github.io/styleguide/pyguide.html
 
-NEED TO MAKE TESTS FOR THE FOLLOWING:
-link_dicts_sorted_and_reduced (and maybe its earlier forms as link_dicts and link_dicts_sorted)
-current_date
-app
-@app.errorhandler(404)
-
 > pytest -v
 """
 from app import app
 import json
 
 
-def test_index_route():
-    """Successful GET request to app's home page."""
+def test_app_index_route():
+    """GET request to app's home page."""
     response = app.test_client().get('/')
     assert response.status_code == 200
 
 
-def test_api_route():
-    """Successful GET request to default API endpoint."""
+def test_app_api_route():
+    """GET request to default internal API endpoint."""
     response = app.test_client().get('/api')
     assert response.status_code == 200
     res = json.loads(response.data.decode('utf-8'))
@@ -33,8 +27,8 @@ def test_api_route():
     assert type(res[1]) is dict
 
 
-def test_api_parameter():
-    """Successful GET request to specified API endpoints."""
+def test_app_api_parameters():
+    """GET requests to specified internal API endpoints."""
     response = app.test_client().get('/api/<outlet>')
     assert response.status_code == 200
     res = json.loads(response.data.decode('utf-8'))

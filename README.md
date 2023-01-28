@@ -6,7 +6,7 @@
 
 ## Candyfloss Explained in One Sentence
 
-Hacker News, but only about music.
+Hacker News but for music.
 
 ## Candyfloss Explained in One Minute
 
@@ -20,7 +20,7 @@ As a music journalist, I read _a lot_ of media. Social media is an easy way to k
 
 ## The Solution
 
-I essentially created my own RSS reader, but as a simple web app that's meant to be shared with my colleagues.
+I essentially created my own RSS reader as a simple web app that's meant to be shared with my colleagues.
 
 ## The Goal
 
@@ -46,7 +46,7 @@ In your IDE of choice, in an open terminal window, enter and run `flask --debug 
 
 ## Candyfloss (Local Instance) API
 
-To view the API for the entire feed, at the end of the local server URL, add "/api" (the rendered feed will only display the most recent 50 links).
+To view the API for the entire feed, at the end of the local server URL, add "/api."
 
 To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" needs to be uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available to view on the API and how to spell them.
 
@@ -66,7 +66,7 @@ I first find a working RSS feed for a publication. If a website doesn't promote 
 
 Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication.
 
-**"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for genuine web scraping when RSS is not available)
+**"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for genuine web scraping when RSS is not available):
 
 ```python
 def get_soup():
@@ -78,7 +78,7 @@ def get_soup():
 soup = get_soup()
 ```
 
-**"Cook" the soup**: pinpoint the repeating element holding the content I wish to pull from
+**"Cook" the soup**: pinpoint the repeating element holding the content that I wish to pull from:
 
 ```python
 def cook_soup():  # each article is in an <item/>
@@ -102,7 +102,7 @@ PUBLICATION = [
 ]
 ```
 
-REFACTORING NOTES: Since deploying this app, I've refactored this step to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began. `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing, mostly from publications not crediting their authors, or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
+REFACTORING NOTES: Since deploying this app, I've refactored these steps to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began. `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing, mostly from publications not crediting their authors, or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
 
 ### 3) Combine the Feeds into THE Feed
 
@@ -196,17 +196,17 @@ More can be found in `requirements.txt`
 - Update `pytest` to now account for object refactoring and more closely follow Google's Python style guide
 - Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
 - Connect the API to a database to then dynamically change what my app feed displays (starting with SQLite and SQLAlchemy)
-- Refactor current feeds to incorporate new class structures
+- Refactor older feed files to incorporate my new class structures
 - Add more publications!
-- Are there too many links?
+- Are there too many links on the UI?
 - Flesh out the app's overall metadata
 - Add a search field on the UI
 - Expand upon the current 404 page
-- Any way to utilize relative data analysis, machine learning, or game logic?
+- Any way to utilize relative data analysis or machine learning?
 
 ---
 
-## How Can YOU Contribute?
+## How Can You Contribute?
 
 Any way you can! I'm especially looking for help to flesh out my Python automated testing, and suggestions on new outlets I should add to Candyfloss.
 
@@ -236,7 +236,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 
 ## Closing Credits
 
-A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also wish to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
+A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
 
 ---
 
