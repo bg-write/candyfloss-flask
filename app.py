@@ -29,11 +29,10 @@ from feeds.loud_quiet import loud_quiet
 from feeds.no_depression import no_depression
 from feeds.sterlewine import so_it_goes
 from feeds.reply_alt import reply_alt
+from feeds.wire import wire_list
 
 # Combining our feeds into a list of dicts
-link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx +
-              abundant_living + billboard_chart_beat + ringer + no_bells +
-              quietus + loud_quiet + no_depression + so_it_goes + reply_alt)
+link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx + abundant_living + billboard_chart_beat + ringer + no_bells + quietus + loud_quiet + no_depression + so_it_goes + reply_alt + wire_list)
 '''Ordering our combined feed by date.
 1) pass in our combined feed "link_dicts" to then sort.
 2) Our anonymous function returns our key, which is our date.
@@ -49,7 +48,7 @@ current_date = datetime.now().strftime('%b %d, %Y')
 
 app = Flask(__name__)
 
-# Adding config for using SQLite and initializing database instance "site.db".
+# todo Adding config for using SQLite and initializing database instance "site.db".
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 

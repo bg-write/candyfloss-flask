@@ -215,7 +215,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 ## The Ever-Evolving List of Outlets Featured On Candyfloss
 
 - Pitchfork (album reviews)
-- Stereogum (new music)
+- Stereogum (new music links)
 - Aquarium Drunkard (latest posts)
 - The Ringer (music section)
 - Fluxblog (substack)
@@ -224,13 +224,14 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - Chicago Reader (Gossip Wolf column)
 - Uproxx (music section)
 - Abundant Living (ghost)
-- Billboard (chart beat)
+- Billboard (Chart Beat column)
 - No Bells (latest posts)
 - The Quietus (reviews)
 - Loud And Quiet (reviews)
 - No Depression (reviews)
 - So It Goes (substack)
 - Reply Alt (substack)
+- Wire (In Writing column)
 
 ---
 
