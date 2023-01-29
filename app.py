@@ -6,24 +6,18 @@ from datetime import datetime
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-# from feeds.p4k import p4k
 from feeds.p4k_class import p4k
 from feeds.gum import gum
 from feeds.ad import ad
 from feeds.ringer import ringer
 from feeds.flux_sub import flux_sub
 from feeds.MJI import MJI
-# from feeds.creem import creem
 from feeds.penny import penny
 from feeds.chi_reader import chi_reader
-# from feeds.vulture import vulture
 from feeds.uproxx import uproxx
 from feeds.quietus import quietus
-# from feeds.eight_bit_theory import eight_bit_theory
 from feeds.abundant_living import abundant_living
-# from feeds.billboard_global import billboard_global
 from feeds.billboard_chart_beat import billboard_chart_beat
-# from feeds.bandcamp import bandcamp
 from feeds.no_bells import no_bells
 from feeds.loud_quiet import loud_quiet
 from feeds.no_depression import no_depression
@@ -31,9 +25,13 @@ from feeds.sterlewine import so_it_goes
 from feeds.reply_alt import reply_alt
 from feeds.wire import wire_list
 from feeds.passion_of_the_weiss import passion_of_the_weiss_list
+from feeds.nyt import nyt_list
 
 # Combining our feeds into a list of dicts
-link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx + abundant_living + billboard_chart_beat + ringer + no_bells + quietus + loud_quiet + no_depression + so_it_goes + reply_alt + wire_list + passion_of_the_weiss_list)
+link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx +
+              abundant_living + billboard_chart_beat + ringer + no_bells +
+              quietus + loud_quiet + no_depression + so_it_goes + reply_alt +
+              wire_list + passion_of_the_weiss_list + nyt_list)
 '''Ordering our combined feed by date.
 1) pass in our combined feed "link_dicts" to then sort.
 2) Our anonymous function returns our key, which is our date.

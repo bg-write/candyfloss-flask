@@ -28,6 +28,3 @@ def test_feed_p4k_internal():
     assert type(res_p4k[0]) is dict
     assert type(res_p4k[1]) is dict
     assert res_p4k[0]['publication'] == 'Pitchfork'
-
-
-# python tests/test_feeds.py
