@@ -12,7 +12,7 @@ import requests
 def test_new_rss_external():
     '''GET request to RSS feed to make sure it works.'''
     response = requests.get(
-        'https://www.theguardian.com/music/rss')
+        'https://www.nme.com/features/music-features/feed')
     response_soup = BeautifulSoup(response.text, 'xml')
     print(response_soup)
 

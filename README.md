@@ -235,6 +235,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - Passion of the Weiss (latest posts)
 - New York Times (music section)
 - The Guardian (music section)
+- NME (music features)
 
 ---
 

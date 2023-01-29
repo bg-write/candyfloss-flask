@@ -51,8 +51,9 @@ class Outlet(object):
         return BeautifulSoup(html_text, 'xml')
 
 
-nme = Outlet('https://www.nme.com/features/music-features/feed', 'NME')
-soup = nme.get_soup()
+spin = Outlet('https://www.spin.com/new-music/feed/', 'SPIN')
+soup = spin.get_soup()
+print(soup)
 
 
 def cook_soup():
@@ -86,7 +87,7 @@ def deliver_soup():
         author = article.find('dc:creator').text
         content_url = article.find('link').text
         date = article.find('pubDate').text
-        date_formatted = datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %z")
+        date_formatted = datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %Z")
         date_formatted_iso = date_formatted.isoformat()
 
         idx_list.append(idx)
@@ -99,13 +100,13 @@ def deliver_soup():
 deliver_soup()
 
 # zip updated lists into a list of dictionaries
-nme_list = [{
+spin_list = [{
     'idx': idx,
     'title': title,
     'URL': content_url,
     'author': author,
-    'publication': nme.publication,
+    'publication': spin.publication,
     'date': date
 } for idx, title, content_url, author, date in zip(
     idx_list, title_list, content_url_list, author_list, date_list)]
-print(nme_list)
+print(spin_list)
