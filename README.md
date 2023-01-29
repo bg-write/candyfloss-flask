@@ -232,6 +232,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - So It Goes (substack)
 - Reply Alt (substack)
 - Wire (In Writing column)
+- Passion of the Weiss (latest posts)
 
 ---
 
