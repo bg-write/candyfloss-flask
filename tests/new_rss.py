@@ -12,7 +12,7 @@ import requests
 def test_new_rss_external():
     '''GET request to RSS feed to make sure it works.'''
     response = requests.get(
-        'https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/arts/music/rss.xml')
+        'https://www.theguardian.com/music/rss')
     response_soup = BeautifulSoup(response.text, 'xml')
     print(response_soup)
 
