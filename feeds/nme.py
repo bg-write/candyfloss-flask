@@ -108,4 +108,4 @@ nme_list = [{
     'date': date
 } for idx, title, content_url, author, date in zip(
     idx_list, title_list, content_url_list, author_list, date_list)]
-print(nme_list)
+# print(nme_list)

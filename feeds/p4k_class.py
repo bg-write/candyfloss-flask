@@ -79,7 +79,7 @@ def deliver_soup():
     i.e. '2022-12-30T05:00:00+00:00'
     Be mindful that all RSS feeds format date and time differently
     i.e. Change lowercase %z to uppercase %Z to account for time zone differences
-    For more on py's datetime: https://docs.python.org/3/library/datetime.html
+    For more on py's datetime: https://docs.python.org/3/library/datetime.html (section "strftime() and strptime() Format Codes")
     """
     for idx, article in enumerate(articles):
         idx = idx
