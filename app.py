@@ -30,13 +30,14 @@ from feeds.guardian import guardian_list
 from feeds.nme import nme_list
 from feeds.van import van_list
 from feeds.alternative import alternative_list
+from feeds.gq import gq_list
 
 # Combining our feeds into a list of dicts
 link_dicts = (p4k + gum + ad + flux_sub + MJI + penny + chi_reader + uproxx +
               abundant_living + billboard_chart_beat + ringer + no_bells +
               quietus + loud_quiet + no_depression + so_it_goes + reply_alt +
               wire_list + passion_of_the_weiss_list + nyt_list +
-              guardian_list + nme_list + van_list + alternative_list)
+              guardian_list + nme_list + van_list + alternative_list + gq_list)
 '''Ordering our combined feed by date.
 1) pass in our combined feed "link_dicts" to then sort.
 2) Our anonymous function returns our key, which is our date.
