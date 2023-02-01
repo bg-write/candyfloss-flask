@@ -53,7 +53,6 @@ class Outlet(object):
 
 four_columns = Outlet('https://4columns.org/archive/', '4Columns')
 soup = four_columns.get_soup()
-# print(soup)
 
 
 def cook_soup():
@@ -62,7 +61,6 @@ def cook_soup():
 
 
 articles = cook_soup()
-print(articles)
 
 # Define lists we'll fill up with deliver_soup() and use later.
 idx_list = []
@@ -83,37 +81,40 @@ def deliver_soup():
     For more on py's datetime: https://docs.python.org/3/library/datetime.html
     """
     for idx, article in enumerate(articles):
-        music_categories = ['Classical', 'County', 'Experimental Music', 'Funk', 'Hip-Hop', 'Jazz', 'Opera', 'Pop', 'Rock']
+        music_categories = [
+            'Classical', 'County', 'Experimental Music', 'Funk', 'Hip-Hop',
+            'Jazz', 'Opera', 'Pop', 'Rock'
+        ]
         category = article.find_all('span')[1].text
-        
-        if category in music_categories:
-          idx = idx
-          title = article.find_all('span')[3].text
-          author = article.find_all('span')[2].text
-          content_url = 'https://4columns.org' + article['href']
-          date = article.find_all('span')[0].text
-          date_formatted = datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %z")
-          # date_formatted_iso = date_formatted.isoformat()
 
-          idx_list.append(idx)
-          title_list.append(title)
-          # author_list.append(author)
-          # content_url_list.append(content_url)
-          # date_list.append(date_formatted_iso)
+        if category in music_categories:
+            idx = idx
+            title = article.find_all('span')[3].text
+            author = article.find_all('span')[2].text
+            content_url = 'https://4columns.org' + article['href']
+            date = article.find_all('span')[0].text
+            date_formatted = datetime.strptime(date, "%m.%d.%y")
+            date_formatted_iso = date_formatted.isoformat()
+
+            idx_list.append(idx)
+            title_list.append(title)
+            author_list.append(author)
+            content_url_list.append(content_url)
+            date_list.append(date_formatted_iso)
 
 
 deliver_soup()
 
-# # zip updated lists into a list of dictionaries
-# four_columns_list = [{
-#     'idx': idx,
-#     'title': title,
-#     'URL': content_url,
-#     'author': author,
-#     'publication': four_columns.publication,
-#     'date': date
-# } for idx, title, content_url, author, date in zip(
-#     idx_list, title_list, content_url_list, author_list, date_list)]
-# # print(four_columns_list)
+# zip updated lists into a list of dictionaries
+four_columns_list = [{
+    'idx': idx,
+    'title': title,
+    'URL': content_url,
+    'author': author,
+    'publication': four_columns.publication,
+    'date': date
+} for idx, title, content_url, author, date in zip(
+    idx_list, title_list, content_url_list, author_list, date_list)]
+print(four_columns_list)
 
-# # > python feeds/4columns.py
+# > python feeds/four_columns.py
