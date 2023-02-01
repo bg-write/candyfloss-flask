@@ -215,7 +215,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 ## The Ever-Evolving List of Outlets Featured On Candyfloss
 
 - Pitchfork (album reviews)
-- Stereogum (new music links)
+- Stereogum (new music)
 - Aquarium Drunkard (latest posts)
 - The Ringer (music section)
 - Fluxblog (substack)
@@ -237,6 +237,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - The Guardian (music section)
 - NME (music features)
 - VAN (classical music features)
+- The Alternative (new music)
 
 ---
 
