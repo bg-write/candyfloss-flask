@@ -15,12 +15,12 @@ current_date = datetime.now().strftime("%B %d, %Y")
 
 def test_new_rss_external():
     '''GET request to RSS feed to make sure it works.'''
-    response = requests.get('https://www.nme.com/features/music-features/feed')
+    response = requests.get('https://van-magazine.com/feed/')
     response_soup = BeautifulSoup(response.text, 'xml')
     print(response_soup)
 
 
-# test_new_rss_external()
+test_new_rss_external()
 
 
 def test_new_lxml_external():
