@@ -238,7 +238,6 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - NME (music features)
 - VAN (classical music features)
 - The Alternative (new music)
-- GQ (music section)
 - 4Columns (music columns)
 
 ---

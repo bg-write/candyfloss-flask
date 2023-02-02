@@ -116,5 +116,6 @@ gq_list = [{
            for idx, title, content_url, author, date in zip(
                idx_list, title_list, content_url_list, author_list, date_list)]
 # print(gq_list)
+# todo received an exception error that broke the whole site - need to account for that in the for loop and add defaults (for everyone else, too)
 
 # > python feeds/gq.py
