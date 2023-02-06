@@ -6,7 +6,7 @@ This file isn't included in pytest.
 > python tests/new_rss.py
 """
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
+from datetime import datetime
 import requests
 
 current_date = datetime.now().strftime("%B %d, %Y")
@@ -15,7 +15,7 @@ current_date = datetime.now().strftime("%B %d, %Y")
 
 def test_new_rss_external():
     '''GET request to RSS feed to make sure it works.'''
-    response = requests.get('https://www.newyorker.com/feed/everything')
+    response = requests.get('https://www.opemag.com/rss.xml')
     response_soup = BeautifulSoup(response.text, 'xml')
     print(response_soup)
 

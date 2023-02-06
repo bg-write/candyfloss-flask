@@ -214,6 +214,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 
 ## The Ever-Evolving List of Outlets Featured On Candyfloss
 
+- OPE! (my own music blog)
 - Pitchfork (album reviews)
 - Stereogum (new music)
 - Aquarium Drunkard (latest posts)
