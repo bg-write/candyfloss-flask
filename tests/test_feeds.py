@@ -9,6 +9,7 @@ https://google.github.io/styleguide/pyguide.html
 """
 from app import app
 from feeds.p4k_class import pitchfork
+from feeds.gum import gum
 import requests
 import json
 
@@ -28,3 +29,21 @@ def test_feed_p4k_internal():
     assert type(res_p4k[0]) is dict
     assert type(res_p4k[1]) is dict
     assert res_p4k[0]['publication'] == 'Pitchfork'
+
+
+def test_feed_stereogum_external():
+    '''GET request to Stereogum's RSS feed'''
+    # todo need to refactor gum.py to new class structure
+    response = requests.get('https://www.stereogum.com/category/music/feed/')
+    assert response.status_code == 200
+
+
+def test_feed_stereogum_internal():
+    '''GET request to our Stereogum API endpoint'''
+    response = app.test_client().get('/api/Stereogum')
+    assert response.status_code == 200
+    res_gum = json.loads(response.data.decode('utf-8'))
+    assert type(res_gum) is list
+    assert type(res_gum[0]) is dict
+    assert type(res_gum[1]) is dict
+    assert res_gum[0]['publication'] == 'Stereogum'
