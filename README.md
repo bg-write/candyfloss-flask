@@ -240,6 +240,16 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - VAN (classical music features)
 - The Alternative (new music)
 
+## Publications to Add to Candyfloss
+
+- Bandcamp
+- Creem
+- Eight-Bit Theory
+- Four Columns
+- GQ
+- SPIN
+- Vulture
+
 ---
 
 ## Closing Credits
