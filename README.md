@@ -193,9 +193,10 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
+- Connect the API to a database to then dynamically change what my app feed displays (starting with SQLite and SQLAlchemy but might look into [DynamoDB](https://aws.amazon.com/dynamodb/?refid=94bf4df1-96e1-4046-a020-b07a2be0d712); do the [AWS serverless workshop](https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication) first)
+- Look into [Terraform](https://www.terraform.io/)?
 - Update `pytest` to now account for object refactoring and more closely follow Google's Python style guide
 - Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
-- Connect the API to a database to then dynamically change what my app feed displays (starting with SQLite and SQLAlchemy)
 - Refactor older feed files to incorporate my new class structures
 - Add more publications!
 - Are there too many links on the UI?
@@ -249,6 +250,13 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - GQ
 - SPIN
 - Vulture
+- Last Donut of the Night
+- BBC
+- Mix Mag
+- Slate
+- Atlantic
+- Aeon
+- OkayPlayer
 
 ---
 
