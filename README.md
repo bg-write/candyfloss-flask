@@ -257,6 +257,9 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - Atlantic
 - Aeon
 - OkayPlayer
+- Music Business Worldwide
+- Texas Monthly
+- John's Music Blog
 
 ---
 
