@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask
 
 ### CF Additions
-candyfloss.db
+.db
 
 ### Flask ###
 instance/*
