@@ -2,9 +2,13 @@
 
 Import feeds into one feed: sort, slice, then render.
 """
+from dotenv import load_dotenv
 from datetime import datetime
 from flask import Flask, render_template
 import sqlite3
+import os
+
+load_dotenv()
 
 # Importing all our working feeds
 from feeds.p4k_class import p4k
@@ -54,9 +58,10 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 current_date = datetime.now().strftime('%b %d, %Y')
 
 
-# The function connecting to 'candyfloss.db'
+# The function connecting to our database
 def get_db():
-    connection = sqlite3.connect('candyfloss.db')
+    DATABASE = os.getenv('DB')
+    connection = sqlite3.connect(DATABASE)
     connection.row_factory = sqlite3.Row
     return connection
 

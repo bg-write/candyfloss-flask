@@ -10,7 +10,7 @@ Hacker News but for music.
 
 ## Candyfloss Explained in One Minute
 
-**Candyfloss** is a digital daily newspaper curating the best music news and longform writing (and occasional sports link). Now you don't need Twitter to keep up on the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight against the endless scroll.
+**Candyfloss** is a digital daily newspaper curating the best music news and longform writing. Now you don't need Twitter to keep up on the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight against the endless scroll.
 
 Candyfloss displays the 50 most recent links from several outlets (full list below) and is set to refresh at the top of every hour. All you have to do is open Candyfloss, click on the links, and enjoy!
 
@@ -20,7 +20,7 @@ As a music journalist, I read _a lot_ of media. Social media is an easy way to k
 
 ## The Solution
 
-I essentially created my own RSS reader as a simple web app that's meant to be shared with my colleagues.
+I essentially created my own RSS reader as a simple web app meant to be shared with my colleagues.
 
 ## The Goal
 
@@ -32,7 +32,7 @@ A fellow music journalist or music fan who wants to discover some of the best mu
 
 ## Why Python?
 
-Python is one of my favorite languages; I love its balance of power and simplicity. I mostly work in JavaScript and wanted more hands-on work with Python, so I decided to use Python to make something I would use myself. I also wanted to learn Beautiful Soup, a neat Python library for parsing structured data.
+Python is one of my favorite languages; I love its balance of power and simplicity. I also wanted to learn Beautiful Soup, a neat Python library for parsing structured data.
 
 I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; it's perfect for this project and I recommend it for most simple Python web apps.)
 
@@ -48,17 +48,17 @@ In your IDE of choice, in an open terminal window, enter and run `flask --debug 
 
 To view the API for the entire feed, at the end of the local server URL, add "/api".
 
-To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" needs to be uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available to view on the API and how to spell them.
+To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" needs to be uppercase. Please see a later section of this README to see what publications are currently available to view on the API and how to spell them.
 
 ## Candyfloss (Local Instance) Database
 
-`candyfloss.db` is an SQLite database currently holding the outlets and RSS links being scraped by Candyfloss. To view this list of scraped outlets, at the end of the local server URL, add "/db".
+Candyfloss uses an SQLite database currently holding the outlets and RSS links being scraped. To view this list of scraped outlets, at the end of the local server URL, add "/db".
 
 Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
 
 ## Running Tests
 
-In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder. More testing for each feed and `candyfloss.db` to come.
+In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder. More feed and database testing to come.
 
 ---
 
@@ -134,7 +134,6 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 - `templates`: The HTML you see on the browser
 - `tests`: Where I test `app.py` and `feeds` using pytest
 - `app.py`: where I combine the feeds into one clean and organized feed, then rendered to `templates`
-- `candyfloss.db`: SQLite database holding scraped outlets
 
 ---
 
@@ -195,6 +194,7 @@ Mobile:
 - [PythonAnywhere](https://www.pythonanywhere.com/)
 - Google's "[RSS Subscription Extension](https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd)" Chrome plugin
 - [Icons8](https://icons8.com/) (for the current corn favicon)
+- [Python Dotenv](https://pypi.org/project/python-dotenv/)
 
 More can be found in `requirements.txt`
 
@@ -202,7 +202,7 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Update SQLite database to dynamically change what my app feed displays (maybe look into [DynamoDB](https://aws.amazon.com/dynamodb/?refid=94bf4df1-96e1-4046-a020-b07a2be0d712) too; do the [AWS serverless workshop](https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication) first)
+- Update SQLite database to dynamically change what my app feed displays (maybe look into [DynamoDB](https://aws.amazon.com/dynamodb/?refid=94bf4df1-96e1-4046-a020-b07a2be0d712) as well; do the [AWS serverless workshop](https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication) first)
 - Look into [Terraform](https://www.terraform.io/)?
 - Update `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
 - Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
