@@ -1,9 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask
 
-### CF Additions
-.db
-
 ### Flask ###
 instance/*
 !instance/.gitignore
