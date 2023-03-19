@@ -9,9 +9,7 @@
 			type="text/css"
 			href="{{ url_for('static', filename='styles.css') }}"
 			media="screen" />
-		<title>
-			Candyfloss | Your Digital Music Newspaper, Curated By Brady Gerber
-		</title>
+		<title>Candyfloss Outlets</title>
 		<link
 			rel="icon"
 			type="image/x-icon"
@@ -29,19 +27,19 @@
 				<div id="subhead">
 					<div>Your digital music newspaper, curated by Brady Gerber</div>
 					<div>Today is <span>{{ date }} UTC</span></div>
+					<br />
+					<div>List of Candyfloss outlets (w/ RSS links)</div>
 				</div>
 			</header>
 			<main>
 				<ul id="list">
-					{% for i in links %}
-					<li key="{{i.idx}}" class="list-item">
-						{{i.title}} <br />
-						(<a href="{{i.URL}}" rel="noopener noreferrer"
-							>{{i.author}} / {{i.publication}}</a
-						>)
+					{% for row in rows|sort(attribute='publication') %}
+					<li key="{{row.id}}" class="list-item">
+						<a href="{{row.feed_url}}" rel="noopener noreferrer"
+							>{{row.publication}}</a
+						>
 					</li>
 					{% endfor %}
-					<li class="list-item">&nbsp;Thank you for reading</li>
 				</ul>
 			</main>
 			<footer>

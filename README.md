@@ -1,4 +1,4 @@
-# Candyfloss: The music news of the day curated by Brady Gerber
+# Candyfloss: The top music news of the day curated by Brady Gerber
 
 [![GitHub issues](https://img.shields.io/github/issues/bg-write/candyfloss-flask?style=flat-square)](https://github.com/bg-write/candyfloss-flask/issues)
 
@@ -12,11 +12,11 @@ Hacker News but for music.
 
 **Candyfloss** is a digital daily newspaper curating the best music news and longform writing (and occasional sports link). Now you don't need Twitter to keep up on the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight against the endless scroll.
 
-Candyfloss displays the 50 most recent links from several outlets (full list below) and is set to refresh at the top of every hour. All you have to do is open Candyfloss, click on whatever links you want, and enjoy!
+Candyfloss displays the 50 most recent links from several outlets (full list below) and is set to refresh at the top of every hour. All you have to do is open Candyfloss, click on the links, and enjoy!
 
 ## The Problem
 
-As a music journalist, I read _a lot_ of media. Social media is an easy way to keep track of new content from my favorite writers and outlets on various types of media: websites, newsletters, video channels, and more. I'm also trying to spend less time on social media. So I thought: is there a way to still see all the links I want without the baggage of social media?
+As a music journalist, I read _a lot_ of media. Social media is an easy way to keep track of new content from my favorite writers and outlets on various types of media: websites, newsletters, video channels, and more. I'm also trying to spend less time on social media. So I thought: is there a way to see all the links I want without the baggage of social media?
 
 ## The Solution
 
@@ -34,7 +34,7 @@ A fellow music journalist or music fan who wants to discover some of the best mu
 
 Python is one of my favorite languages; I love its balance of power and simplicity. I mostly work in JavaScript and wanted more hands-on work with Python, so I decided to use Python to make something I would use myself. I also wanted to learn Beautiful Soup, a neat Python library for parsing structured data.
 
-I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; it's perfect for this project and recommended for most simple web apps.)
+I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; it's perfect for this project and I recommend it for most simple Python web apps.)
 
 ---
 
@@ -46,13 +46,19 @@ In your IDE of choice, in an open terminal window, enter and run `flask --debug 
 
 ## Candyfloss (Local Instance) API
 
-To view the API for the entire feed, at the end of the local server URL, add "/api."
+To view the API for the entire feed, at the end of the local server URL, add "/api".
 
 To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" needs to be uppercase. Please see the bottom "The Ever-Evolving List of Outlets Featured On Candyfloss" section to see what publications are currently available to view on the API and how to spell them.
 
+## Candyfloss (Local Instance) Database
+
+`candyfloss.db` is an SQLite database currently holding the outlets and RSS links being scraped by Candyfloss. To view this list of scraped outlets, at the end of the local server URL, add "/db".
+
+Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
+
 ## Running Tests
 
-In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder. (More testing to come.)
+In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder. More testing for each feed and `candyfloss.db` to come.
 
 ---
 
@@ -128,6 +134,7 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 - `templates`: The HTML you see on the browser
 - `tests`: Where I test `app.py` and `feeds` using pytest
 - `app.py`: where I combine the feeds into one clean and organized feed, then rendered to `templates`
+- `candyfloss.db`: SQLite database holding scraped outlets
 
 ---
 
@@ -182,6 +189,8 @@ Mobile:
 - [pytest](https://docs.pytest.org/en/7.2.x/)
 - [pylint](https://pylint.org/)
 - [yapf](https://pypi.org/project/yapf/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [DB Browser for SQLite](https://sqlitebrowser.org/)
 - [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
 - [PythonAnywhere](https://www.pythonanywhere.com/)
 - Google's "[RSS Subscription Extension](https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd)" Chrome plugin
@@ -193,9 +202,9 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Connect the API to a database to then dynamically change what my app feed displays (starting with SQLite and SQLAlchemy but might look into [DynamoDB](https://aws.amazon.com/dynamodb/?refid=94bf4df1-96e1-4046-a020-b07a2be0d712); do the [AWS serverless workshop](https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication) first)
+- Update SQLite database to dynamically change what my app feed displays (maybe look into [DynamoDB](https://aws.amazon.com/dynamodb/?refid=94bf4df1-96e1-4046-a020-b07a2be0d712) too; do the [AWS serverless workshop](https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication) first)
 - Look into [Terraform](https://www.terraform.io/)?
-- Update `pytest` to now account for object refactoring and more closely follow Google's Python style guide
+- Update `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
 - Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
 - Refactor older feed files to incorporate my new class structures
 - Add more publications!
@@ -266,7 +275,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 
 ## Closing Credits
 
-A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
+A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
 
 ---
 

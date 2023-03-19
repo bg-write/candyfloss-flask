@@ -4,7 +4,9 @@ Import feeds into one feed: sort, slice, then render.
 """
 from datetime import datetime
 from flask import Flask, render_template
+import sqlite3
 
+# Importing all our working feeds
 from feeds.p4k_class import p4k
 from feeds.gum import gum
 from feeds.ad import ad
@@ -51,6 +53,15 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 # Universal Time Coordinated (UTC/GMT time)
 current_date = datetime.now().strftime('%b %d, %Y')
 
+
+# The function connecting to 'candyfloss.db'
+def get_db():
+    connection = sqlite3.connect('candyfloss.db')
+    connection.row_factory = sqlite3.Row
+    return connection
+
+
+# Define our Flask app
 app = Flask(__name__)
 
 
@@ -80,6 +91,15 @@ def hello_api_outlet(outlet):
 def page_not_found(error):
     """404 page"""
     return render_template('404.html', error=error), 404
+
+
+@app.route('/db')
+def hello_db():
+    """Displays 'Candyfloss' db and 'feeds' table"""
+    connection = get_db()
+    rows = connection.execute("SELECT * FROM feeds").fetchall()
+    connection.close()
+    return render_template('db.html', date=current_date, rows=rows)
 
 
 if __name__ == '__main__':
