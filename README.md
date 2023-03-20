@@ -270,6 +270,8 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - Texas Monthly
 - John's Music Blog
 - 4Columns
+- New Yorker
+- NPR
 
 ---
 
