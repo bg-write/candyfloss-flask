@@ -202,8 +202,8 @@ More can be found in `requirements.txt`
 
 ## Next Steps (my "Icebox")
 
-- Update SQLite database to dynamically change what my app feed displays (maybe look into [DynamoDB](https://aws.amazon.com/dynamodb/?refid=94bf4df1-96e1-4046-a020-b07a2be0d712) as well; do the [AWS serverless workshop](https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication) first)
-- Look into [Terraform](https://www.terraform.io/)?
+- Flesh out documentation to DITA standards
+- Update SQLite database to PostgreSQL
 - Update `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
 - Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
 - Refactor older feed files to incorporate my new class structures
