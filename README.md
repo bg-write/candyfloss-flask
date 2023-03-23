@@ -1,6 +1,6 @@
-# Candyfloss: The top music news of the day curated by Brady Gerber
-
 <a name="top"></a>
+
+# Candyfloss: The top music news of the day curated by Brady Gerber
 
 [![GitHub issues](https://img.shields.io/github/issues/bg-write/candyfloss-flask?style=flat-square)](https://github.com/bg-write/candyfloss-flask/issues)
 
@@ -23,7 +23,6 @@
 ## Description
 
 ###### [Return to top](#top)
-<br/>
 
 ## Candyfloss Explained in One Sentence
 
@@ -62,7 +61,6 @@ I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host
 ## Getting Started (On Your Local Machine)
 
 ###### [Return to top](#top)
-<br/>
 
 The deployed app: <https://www.candyfloss.app/>
 
@@ -89,7 +87,6 @@ In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` 
 ## How Does Candyfloss Work?
 
 ###### [Return to top](#top)
-<br/>
 
 ### 1) Find and Test the RSS URLs
 
@@ -157,7 +154,6 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 ## Candyfloss Architecture
 
 ###### [Return to top](#top)
-<br/>
 
 - `feeds`: Holds the web scraping for each publication
 - `static`: Holds my used images and `styles.css`
@@ -170,7 +166,6 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 ## Candyfloss Style Guide
 
 ###### [Return to top](#top)
-<br/>
 
 ### CSS
 
@@ -214,7 +209,6 @@ Mobile:
 ## Tech Stack and Tools
 
 ###### [Return to top](#top)
-<br/>
 
 - [Python](https://www.python.org/) (3.8.6)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
@@ -239,7 +233,6 @@ More can be found in `requirements.txt`
 ## Next Steps
 
 ###### [Return to top](#top)
-<br/>
 
 - Flesh out documentation to DITA standards
 - Update SQLite database to PostgreSQL
@@ -258,7 +251,6 @@ More can be found in `requirements.txt`
 ## How Can You Contribute?
 
 ###### [Return to top](#top)
-<br/>
 
 Any way you can! I'm especially looking for help to flesh out my Python automated testing, and suggestions on new outlets I should add to Candyfloss.
 
@@ -267,7 +259,6 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 ## The Ever-Evolving List of Outlets Featured On Candyfloss
 
 ###### [Return to top](#top)
-<br/>
 
 - OPE! (my own music blog)
 - Pitchfork (album reviews)
@@ -323,7 +314,6 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 ## Closing Credits
 
 ###### [Return to top](#top)
-<br/>
 
 A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
 
