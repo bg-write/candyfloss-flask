@@ -1,8 +1,29 @@
 # Candyfloss: The top music news of the day curated by Brady Gerber
 
+<a name="top"></a>
+
 [![GitHub issues](https://img.shields.io/github/issues/bg-write/candyfloss-flask?style=flat-square)](https://github.com/bg-write/candyfloss-flask/issues)
 
 ![Candyfloss home page](./static/candyfloss-home-page-full.png)
+
+## Table of Contents
+
+1. [Description](#description)
+2. [Getting Started (On Your Local Machine)](#getting-started-on-your-local-machine)
+3. [How Does Candyfloss Work?](#how-does-candyfloss-work)
+4. [Candyfloss Architecture](#candyfloss-architecture)
+5. [Candyfloss Style Guide](#candyfloss-style-guide)
+6. [Tech Stack and Tools](#tech-stack-and-tools)
+7. [Next Steps](#next-steps)
+8. [How Can You Contribute?](#how-can-you-contribute)
+9. [Closing Credits](#closing-credits)
+
+---
+
+## Description
+
+###### [Return to top](#top)
+<br/>
 
 ## Candyfloss Explained in One Sentence
 
@@ -40,6 +61,9 @@ I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host
 
 ## Getting Started (On Your Local Machine)
 
+###### [Return to top](#top)
+<br/>
+
 The deployed app: <https://www.candyfloss.app/>
 
 In your IDE of choice, in an open terminal window, enter and run `flask --debug run` and open the development server URL provided in the terminal output.
@@ -63,6 +87,9 @@ In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` 
 ---
 
 ## How Does Candyfloss Work?
+
+###### [Return to top](#top)
+<br/>
 
 ### 1) Find and Test the RSS URLs
 
@@ -127,7 +154,10 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 ---
 
-## Candyfloss's Architecture
+## Candyfloss Architecture
+
+###### [Return to top](#top)
+<br/>
 
 - `feeds`: Holds the web scraping for each publication
 - `static`: Holds my used images and `styles.css`
@@ -138,6 +168,9 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 ---
 
 ## Candyfloss Style Guide
+
+###### [Return to top](#top)
+<br/>
 
 ### CSS
 
@@ -178,7 +211,10 @@ Mobile:
 
 ---
 
-## Tech Stack & Tools
+## Tech Stack and Tools
+
+###### [Return to top](#top)
+<br/>
 
 - [Python](https://www.python.org/) (3.8.6)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
@@ -200,7 +236,10 @@ More can be found in `requirements.txt`
 
 ---
 
-## Next Steps (my "Icebox")
+## Next Steps
+
+###### [Return to top](#top)
+<br/>
 
 - Flesh out documentation to DITA standards
 - Update SQLite database to PostgreSQL
@@ -218,11 +257,17 @@ More can be found in `requirements.txt`
 
 ## How Can You Contribute?
 
+###### [Return to top](#top)
+<br/>
+
 Any way you can! I'm especially looking for help to flesh out my Python automated testing, and suggestions on new outlets I should add to Candyfloss.
 
 ---
 
 ## The Ever-Evolving List of Outlets Featured On Candyfloss
+
+###### [Return to top](#top)
+<br/>
 
 - OPE! (my own music blog)
 - Pitchfork (album reviews)
@@ -277,8 +322,13 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 
 ## Closing Credits
 
+###### [Return to top](#top)
+<br/>
+
 A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
 
 ---
 
 © 2023 Brady Gerber. All Rights Reserved.
+
+[Return to top](#candyfloss-the-top-music-news-of-the-day-curated-by-brady-gerber)
