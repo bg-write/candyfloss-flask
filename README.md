@@ -30,21 +30,25 @@ Hacker News but for music.
 
 ## Candyfloss Explained in One Minute
 
-**Candyfloss** is a digital daily newspaper curating the best music news and longform writing. Now you don't need Twitter to keep up on the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight against the endless scroll.
+**Candyfloss** is a digital daily newspaper curating the best music news and longform writing. Now you don't need Twitter to keep up with the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight endless scrolling.
 
-Candyfloss displays the 50 most recent links from several outlets (full list below) and is set to refresh at the top of every hour. All you have to do is open Candyfloss, click on the links, and enjoy!
+Candyfloss displays the 50 most recent links from several outlets and refreshes every hour.
+
+1. Open Candyfloss.
+2. Click a link.
+3. Enjoy!
 
 ## The Problem
 
-As a music journalist, I read _a lot_ of media. Social media is an easy way to keep track of new content from my favorite writers and outlets on various types of media: websites, newsletters, video channels, and more. I'm also trying to spend less time on social media. So I thought: is there a way to see all the links I want without the baggage of social media?
+I don't want to rely on social media for music news. However, social media is an easy way to keep track of new content from my favorite writers and outlets on various types of media: websites, newsletters, video channels, and more. Is there a way to see all these various links without the baggage of social media?
 
 ## The Solution
 
-I essentially created my own RSS reader as a simple web app meant to be shared with my colleagues.
+I created a simple RSS reader web app to share with colleagues.
 
 ## The Goal
 
-Right now, Candyfloss feels like a complement to Twitter. After adding more outlets and making the code's web scraping more flexible and efficient, the goal is to replace Twitter (at least for how you get your music news).
+Candyfloss aims to replace Twitter as your source for music news. Additional news outlets and improvements to the code's web scraping are pending.
 
 ## The Ideal User
 
@@ -54,7 +58,7 @@ A fellow music journalist or music fan who wants to discover some of the best mu
 
 Python is one of my favorite languages; I love its balance of power and simplicity. I also wanted to learn Beautiful Soup, a neat Python library for parsing structured data.
 
-I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account. (In my experience, PythonAnywhere is easier to work with than Heroku and AWS, though it's not as powerful or flexible and only works with Python; it's perfect for this project and I recommend it for most simple Python web apps.)
+I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account.
 
 ---
 
@@ -64,23 +68,51 @@ I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host
 
 The deployed app: <https://www.candyfloss.app/>
 
-In your IDE of choice, in an open terminal window, enter and run `flask --debug run` and open the development server URL provided in the terminal output.
+To run Candyfloss:
+
+1. Open your IDE of choice.
+2. Open a terminal window.
+3. Enter and run this command: `flask --debug run`.
+4. Open the development server URL that's provided in the terminal output.
+5. You should now see Candyfloss.
 
 ## Candyfloss (Local Instance) API
 
-To view the API for the entire feed, at the end of the local server URL, add "/api".
+To view the API for Candyfloss's entire feed:
 
-To view the API for a specific publication, the route is "/api/OUTLET" (i.e. "/api/Pitchfork"). For now, case does matter i.e. "Pitchfork" needs to be uppercase. Please see a later section of this README to see what publications are currently available to view on the API and how to spell them.
+1. Follow the previous "To run Candyfloss" steps.
+2. Find and click the end of the local server URL.
+3. Type in "/api" to the end of the URL.
+4. Press enter.
+5. You'll now see the API.
+
+To view the API for a specific publication:
+
+1. Follow the previous "To view the API for Candyfloss's entire feed" steps.
+2. At the end of the URL, type in "/PUBLICATION-NAME" (i.e. "/api/Pitchfork").
+3. Press enter.
+4. You'll now see the API for your specific publication.
+
+> For now, case does matter. For example, you need to write "Pitchfork" as a proper noun. Please go to the "The Ever-Evolving List of Outlets Featured On Candyfloss" section of this README to see what publications are currently available to view on this API and how to spell them.
 
 ## Candyfloss (Local Instance) Database
 
-Candyfloss uses an SQLite database currently holding the outlets and RSS links being scraped. To view this list of scraped outlets, at the end of the local server URL, add "/db".
+Candyfloss uses an SQLite database currently holding the outlets and RSS links being scraped.
+
+To view this list of scraped outlets:
+
+1. at the end of your local server URL, add "/db".
 
 Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
 
 ## Running Tests
 
-In a new terminal window, enter and run `pytest -v`. Pytest is testing `app.py` itself and each feed file found in the `feeds` folder. More feed and database testing to come.
+To run pytests for Candyfloss:
+
+1. Open a new terminal window.
+2. Enter and run the command `pytest -v`.
+
+Pytest is testing `app.py` and each file found in the `feeds` folder. More feed and database testing to come.
 
 ---
 
@@ -308,6 +340,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 - 4Columns
 - New Yorker
 - NPR
+- ... and more!
 
 ---
 
@@ -315,7 +348,7 @@ Any way you can! I'm especially looking for help to flesh out my Python automate
 
 ###### [Return to top](#top)
 
-A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
+A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app, and James Bennington for his helpful guidance on how to document my code. [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
 
 ---
 
