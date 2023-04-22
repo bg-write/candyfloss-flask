@@ -12,11 +12,11 @@ Now you don't need Twitter to keep up with the music world.
 
 I. [Introduction](#intro)
 
-- Overview of Candyfloss
-- Why Use Candyfloss?
+- What is Candyfloss?
+- Why Candyfloss?
 - Project Goals & Intended Audience
 
-II. [Getting Started](#getting-started)
+II. [Getting Started & Usage](#getting-started)
 
 - Installing Dependencies
 - Running the Code
@@ -35,7 +35,7 @@ IV. [Style Guide](#style)
 
 V. [API Reference](#api)
 
-- Overview of Candyfloss's API
+- API Overview
 - API for a Specific Publication
 - Database API
 
@@ -72,7 +72,7 @@ VII. [Glossary](#glossary)
 
 [Return to top](#top)
 
-### Overview of Candyfloss
+### What is Candyfloss?
 
 **Candyfloss** is a digital daily newspaper curating the best music news and essays. Now you don't need Twitter to keep up with the music world. Candyfloss's feed has a strict cut-off to fight endless scrolling. It displays the 50 most recent links from several outlets and refreshes every hour.
 
@@ -82,7 +82,7 @@ To use Candyfloss:
 2. Click a link.
 3. Enjoy!
 
-### Why Use Candyfloss?
+### Why Candyfloss?
 
 **The problem**: I don't want to rely on social media for music news.
 
@@ -96,7 +96,7 @@ An ideal user is a fellow music journalist or music fan who wants to discover so
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=9a88ce13e0be8a087884187b642fcedb)
 
-## II. Getting Started <a name="getting-started"></a>
+## II. Getting Started & Usage <a name="getting-started"></a>
 
 [Return to top](#top)
 
@@ -283,7 +283,7 @@ Mobile:
 
 [Return to top](#top)
 
-### Overview of Candyfloss's API
+### API Overview
 
 To view the API for Candyfloss's entire feed:
 
