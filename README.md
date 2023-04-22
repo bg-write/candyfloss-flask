@@ -18,28 +18,26 @@ I. [Introduction](#intro)
 
 II. [Getting Started](#getting-started)
 
-- System Requirements
 - Installing Dependencies
 - Running the Code
 - Running Tests
 
-III. [Usage](#usage)
-
-- Overview of Features
-- Using Candyfloss
-
-IV. [Architecture](#architecture)
+III. [Architecture](#architecture)
 
 - Overall Architecture
-- How Was Candyfloss Built?
-- Style Guide
-- Tech Stack & Tools
+- How Candyfloss Works
+
+IV. [Style Guide](#style)
+
+- CSS
+- The Code Itself
+- Accessibility
 
 V. [API Reference](#api)
 
 - Overview of Candyfloss's API
-- API Endpoints & Parameters
-- Examples of API Usage
+- API for a Specific Publication
+- Database API
 
 VI. [Giving Thanks](#legal)
 
@@ -98,15 +96,27 @@ An ideal user is a fellow music journalist or music fan who wants to discover so
 
 The deployed app: <https://www.candyfloss.app/>
 
-### System Requirements
-
-I wanted to build Candyfloss in Python because it's one of my favorite languages; I love its balance of power and simplicity. I also wanted to learn Beautiful Soup, a Python library for parsing structured data.
-
-I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account.
-
 ### Installing Dependencies
 
-TBD
+In order to work with Candyfloss locally, download the most updated versions of the following (unless a version number is specified):
+
+- [Python](https://www.python.org/) (3.8.6)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+- [Requests](https://requests.readthedocs.io/en/latest/)
+- [lxml](https://lxml.de/)
+- [pytest](https://docs.pytest.org/en/7.2.x/)
+- [pylint](https://pylint.org/)
+- [yapf](https://pypi.org/project/yapf/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [DB Browser for SQLite](https://sqlitebrowser.org/)
+- [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
+- [PythonAnywhere](https://www.pythonanywhere.com/)
+- Google's "[RSS Subscription Extension](https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd)" Chrome plugin
+- [Icons8](https://icons8.com/) (for the current corn favicon)
+- [Python Dotenv](https://pypi.org/project/python-dotenv/)
+
+More requirements can be found in `requirements.txt`.
 
 ### Running the Code
 
@@ -127,21 +137,7 @@ Pytest is testing `app.py` and each file found in the `feeds` folder. More feed 
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=be149914c1ca3abd4d013b3b7bb43666)
 
-## III. Usage <a name="usage"></a>
-
-[Return to top](#top)
-
-### Overview of Features
-
-TBD.
-
-### Using Candyfloss
-
-TBD.
-
-![image](https://doodleipsum.com/700?bg=6392D9&i=32d55ab56f53f676aad5e464810a2833)
-
-## IV. Architecture <a name="architecture"></a>
+## III. Architecture <a name="architecture"></a>
 
 [Return to top](#top)
 
@@ -159,13 +155,13 @@ The most important folders and files to know first:
 
 Below is the workflow I follow whenever I'm adding new outlets to Candyfloss:
 
-#### 1) Find and Test the RSS URLs
+#### Find and Test the RSS URLs
 
 I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can find it most of the time by typing "/rss" or "/feed" at the end of a URL, or I use Google's "RSS Subscription Extension" Chrome plugin.
 
 > To publications that make their RSS feeds easy to find: Thank you!
 
-#### 2) Create a Publication's Feed
+#### Create a Publication's Feed
 
 Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication:
 
@@ -207,7 +203,7 @@ PUBLICATION = [
 
 > REFACTORING NOTES: Since deploying this app, I've refactored these steps to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began. `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing, mostly from publications not crediting their authors, or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
 
-#### 3) Combine the Feeds into THE Feed
+#### Combine the Feeds into THE Feed
 
 In `app.py`, I import all the publication feeds, combine them into one feed, and then use a sorting function to order this new feed by each link's date, and slice away any publication links after a set number (which for now is 50). This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
 
@@ -222,11 +218,15 @@ link_dicts_sorted = sorted(link_dicts, key=lambda i: i['date'], reverse=True)
 link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 ```
 
-### Style Guide
+![image](https://doodleipsum.com/700?bg=6392D9&i=74992813671e428c3a0dc015673e1899)
+
+## IV. Style Guide <a name="style"></a>
+
+[Return to top](#top)
 
 Candyfloss's styling is inspired by the print covers of the 'London Review of Books' and models Google's Python style guide with a few variations.
 
-#### CSS
+### CSS
 
 Candyfloss's CSS is all done in `styles.css`. Media queries are currently set for the following break points:
 
@@ -243,7 +243,7 @@ Color CSS variables are defined as:
 --blue: #0026ff;
 ```
 
-#### The Code Itself
+### The Code Itself
 
 Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possible. This involves:
 
@@ -251,7 +251,7 @@ Candyfloss follows [Google's Python style guide](https://google.github.io/styleg
 - Using `yapf` for auto-formatting
 - Including Google's settings file for Vim and `pylintrc`
 
-#### Accessibility
+### Accessibility
 
 The deployed Candyfloss app received an overall pass on mobile and desktop Lighthouse reports. Areas of improvement include addressing the performance on mobile due to speeds of first contentful paint, time to interactive, and total blocking time.
 
@@ -269,29 +269,7 @@ Mobile:
 - Best Practice: 92
 - SEO: 92
 
-### Tech Stack & Tools
-
-In order to work with Candyfloss locally, download the most updated versions of the following (unless a version number is specified):
-
-- [Python](https://www.python.org/) (3.8.6)
-- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
-- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
-- [Requests](https://requests.readthedocs.io/en/latest/)
-- [lxml](https://lxml.de/)
-- [pytest](https://docs.pytest.org/en/7.2.x/)
-- [pylint](https://pylint.org/)
-- [yapf](https://pypi.org/project/yapf/)
-- [SQLite](https://www.sqlite.org/index.html)
-- [DB Browser for SQLite](https://sqlitebrowser.org/)
-- [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
-- [PythonAnywhere](https://www.pythonanywhere.com/)
-- Google's "[RSS Subscription Extension](https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd)" Chrome plugin
-- [Icons8](https://icons8.com/) (for the current corn favicon)
-- [Python Dotenv](https://pypi.org/project/python-dotenv/)
-
-More requirements can be found in `requirements.txt`
-
-![image](https://doodleipsum.com/700?bg=6392D9&i=74992813671e428c3a0dc015673e1899)
+![image](https://doodleipsum.com/700?bg=6392D9&i=1d13152959d2ca9022a70d05a6b1cbc2)
 
 ## V. API Reference <a name="api"></a>
 
@@ -303,18 +281,22 @@ To view the API for Candyfloss's entire feed:
 
 1. Follow the previous "To run Candyfloss" steps.
 2. Find and click the end of the local server URL.
-3. Type in "/api" to the end of the URL.
+3. Type in "`/api`" to the end of the URL.
 4. Press enter.
 5. You'll now see the API.
+
+### API for a Specific Publication
 
 To view the API for a specific publication:
 
 1. Follow the previous "To view the API for Candyfloss's entire feed" steps.
-2. At the end of the URL, type in "/PUBLICATION-NAME" (i.e. "/api/Pitchfork").
+2. At the end of the URL, type in "`/PUBLICATION-NAME`" (i.e. "`/api/Pitchfork`").
 3. Press enter.
 4. You'll now see the API for your specific publication.
 
 > For now, the spelling case does matter. For example, you need to write "Pitchfork" as a proper noun. Please go to the "[Candyfloss Outlets](#outlets)" section of this README to see what publications are currently available to view on this API and how to spell them.
+
+### Database API
 
 Candyfloss uses an SQLite database currently holding the outlets and RSS links being scraped.
 
@@ -323,14 +305,6 @@ To view this list of scraped outlets:
 1. At the end of your local server URL, add "/db".
 
 > Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
-
-### API Endpoints & Parameters
-
-TBD.
-
-### Examples of API Usage
-
-TBD.
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=47f0be30daaa2b2662e7cf09d7a21413)
 
@@ -428,9 +402,41 @@ The outlets I want to add to Candyfloss:
 
 [Return to top](#top)
 
+### Python
+
+A high-level, interpreted programming language that is widely used in web development, scientific computing, data analysis, artificial intelligence, and more.
+
+### Beautiful Soup
+
+A Python library used for web scraping purposes to extract the data from HTML and XML files. It provides a set of simple methods to navigate and search the parse tree created from the HTML/XML source.
+
+### Requests
+
+A Python library used for making HTTP requests. It provides a simple and elegant way to send HTTP/1.1 requests using Python. It supports HTTP/2, SSL/TLS, and authentication.
+
+### lxml
+
+A Python library used for processing XML and HTML documents. It provides a simple and powerful API to parse, validate, and manipulate XML and HTML documents.
+
+### Pytest
+
+A Python testing framework used to write and run unit tests and a popular alternative to Python's built-in unit test module.
+
+### Pylint
+
+A Python library used for analyzing Python source code for errors and enforcing coding standards. It provides a set of rules and guidelines to help improve the quality and maintainability of Python code.
+
+### yapf
+
+A Python library used for formatting Python code according to a consistent style. It provides a simple and configurable way to automatically format Python code.
+
 ### Flask
 
 A micro web framework written in Python. It is classified as a micro-framework because it does not require particular tools or libraries.
+
+### PythonAnywhere
+
+A cloud-based Python development and hosting platform. It provides a web-based Python development environment, a Python web hosting service, and a set of tools and features to help developers build and deploy Python applications easily.
 
 ### Virtual Environment
 
