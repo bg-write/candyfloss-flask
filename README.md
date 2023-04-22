@@ -48,11 +48,17 @@ VI. [Giving Thanks](#legal)
 - Closing Credits
 - Cited Sources
 - Candyfloss Outlets
-- Outlets To Add
+- Outlets to Add
 
 VII. [Glossary](#glossary)
 
-- TBD
+- Flask
+- Virtual Environment
+- Dependencies
+- Pip
+- SQLite
+- API (Application Programming Interface)
+- JSON (JavaScript Object Notation)
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=f701b63cfe38e57fa0408c238af32027)
 
@@ -62,19 +68,19 @@ VII. [Glossary](#glossary)
 
 ### Overview of Candyfloss
 
-**Candyfloss** is like Hacker News but for music.
+**Candyfloss**: Hacker News but for music.
 
-Candyfloss is a digital daily newspaper curating the best music news and longform writing. Now you don't need Twitter to keep up with the music world. Candyfloss's styling is inspired by the print covers of the London Review of Books and has a strict cut-off point to fight endless scrolling. Candyfloss displays the 50 most recent links from several outlets and refreshes every hour.
+Candyfloss is a digital daily newspaper curating the best music news and essays. Now you don't need Twitter to keep up with the music world. Candyfloss's styling is inspired by the print covers of the 'London Review of Books' and has a strict cut-off point to fight endless scrolling. Candyfloss displays the 50 most recent links from several outlets and refreshes every hour.
 
 To use Candyfloss:
 
-1. Open the Candyfloss URL: <https://www.candyfloss.app/>.
+1. Open Candyfloss: <https://www.candyfloss.app/>.
 2. Click a link.
 3. Enjoy!
 
 ### Why Use Candyfloss?
 
-**The problem**: I don't want to rely on social media for music news. However, social media is an easy way to keep track of new content from my favorite writers and outlets on various types of media: websites, newsletters, video channels, and more. Is there a way to see all these various links without the baggage of social media?
+**The problem**: I don't want to rely on social media for music news. However, social media is an easy way to keep track of new content from writers and outlets on various types of media: websites, newsletters, video channels, and more. Is there a way to see all these various links without the baggage of social media?
 
 **The solution**: I created a simple RSS reader web app to share with colleagues.
 
@@ -82,7 +88,7 @@ To use Candyfloss:
 
 Candyfloss aims to replace Twitter as your source for music news. Additional news outlets and improvements to the code's web scraping are pending.
 
-An ideal user of Candyfloss is a fellow music journalist or music fan who wants to discover some of the best music writing today without being on social media.
+An ideal user is a fellow music journalist or music fan who wants to discover some of the best music writing today without being on social media.
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=9a88ce13e0be8a087884187b642fcedb)
 
@@ -94,7 +100,7 @@ The deployed app: <https://www.candyfloss.app/>
 
 ### System Requirements
 
-I wanted to build Candyfloss in Python because it's one of my favorite languages; I love its balance of power and simplicity. I also wanted to learn Beautiful Soup, a neat Python library for parsing structured data.
+I wanted to build Candyfloss in Python because it's one of my favorite languages; I love its balance of power and simplicity. I also wanted to learn Beautiful Soup, a Python library for parsing structured data.
 
 I deployed Candyfloss as a Flask app via PythonAnywhere, which allows me to host the app on a separate domain and keep track of basic analytics with an affordable paid account.
 
@@ -110,7 +116,7 @@ To run Candyfloss locally:
 2. Open a terminal window.
 3. Enter and run this command: `flask --debug run`.
 4. Open the development server URL that's provided in the terminal output.
-5. You should now see Candyfloss.
+5. You should now see Candyfloss!
 
 ### Running Tests
 
@@ -141,27 +147,27 @@ TBD.
 
 ### Overall Architecture
 
-The most important folders and files to know:
+The most important folders and files to know first:
 
 - `feeds`: Holds the web scraping for each publication
-- `static`: Holds my used images and `styles.css`
+- `static`: Holds images and `styles.css`
 - `templates`: The HTML you see on the browser
 - `tests`: Where I test `app.py` and `feeds` using pytest
-- `app.py`: where I combine the feeds into one clean and organized feed, then rendered to `templates`
+- `app.py`: where I combine the feeds into one clean and organized feed which is then rendered to `templates`
 
 ### How Candyfloss Works?
 
-Below is the workflow I follow whenever I'm adding new outlets to Candyfloss.
+Below is the workflow I follow whenever I'm adding new outlets to Candyfloss:
 
 #### 1) Find and Test the RSS URLs
 
-I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can usually find it by typing "/rss" or "/feed" at the end of a URL, or use Google's "RSS Subscription Extension" Chrome plugin.
+I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can find it most of the time by typing "/rss" or "/feed" at the end of a URL, or I use Google's "RSS Subscription Extension" Chrome plugin.
 
-To publications that make their RSS feeds easy to find: Thank you!
+> To publications that make their RSS feeds easy to find: Thank you!
 
 #### 2) Create a Publication's Feed
 
-Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication.
+Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication:
 
 **"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for genuine web scraping when RSS is not available):
 
@@ -185,7 +191,7 @@ def cook_soup():  # each article is in an <item/>
 articles = cook_soup()
 ```
 
-**"Deliver" the soup**: use a for loop to append the info I need into my empty lists, which I then combine into a new dict, which looks like:
+**"Deliver" the soup**: use a `for` loop to append the info I need into my empty lists, which I then combine into a new dictionary, which looks like:
 
 ```python
 PUBLICATION = [
@@ -218,11 +224,17 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 ### Style Guide
 
-Candyfloss's styling is inspired by the print covers of the London Review of Books and models Google's Python style guide with a few variations.
+Candyfloss's styling is inspired by the print covers of the 'London Review of Books' and models Google's Python style guide with a few variations.
 
 #### CSS
 
-Candyfloss's CSS is all done in `styles.css`. Media queries are currently set for break points at 992px (most iPads and Surface Pros), 600px (most iPhones and Samsung Galaxies), and 360px (for the Galaxy Fold). Color CSS variables are defined as:
+Candyfloss's CSS is all done in `styles.css`. Media queries are currently set for the following break points:
+
+- 992px: most iPads and Surface Pros
+- 600px: most iPhones and Samsung Galaxies
+- 360px: for the Galaxy Fold
+
+Color CSS variables are defined as:
 
 ```CSS
 --black: #0d0d0d;
@@ -259,7 +271,7 @@ Mobile:
 
 ### Tech Stack & Tools
 
-In order to work with Candyfloss locally, download the most updated versions of the following (unless version number is noted):
+In order to work with Candyfloss locally, download the most updated versions of the following (unless a version number is specified):
 
 - [Python](https://www.python.org/) (3.8.6)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
@@ -302,15 +314,15 @@ To view the API for a specific publication:
 3. Press enter.
 4. You'll now see the API for your specific publication.
 
-> For now, case does matter. For example, you need to write "Pitchfork" as a proper noun. Please go to the "The Ever-Evolving List of Outlets Featured On Candyfloss" section of this README to see what publications are currently available to view on this API and how to spell them.
+> For now, the spelling case does matter. For example, you need to write "Pitchfork" as a proper noun. Please go to the "[Candyfloss Outlets](#outlets)" section of this README to see what publications are currently available to view on this API and how to spell them.
 
 Candyfloss uses an SQLite database currently holding the outlets and RSS links being scraped.
 
 To view this list of scraped outlets:
 
-1. at the end of your local server URL, add "/db".
+1. At the end of your local server URL, add "/db".
 
-Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
+> Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
 
 ### API Endpoints & Parameters
 
@@ -330,17 +342,15 @@ TBD.
 
 Candyfloss is always being updated. Future actions to take include:
 
-- Flesh out documentation to DITA standards
-- Update SQLite database to PostgreSQL
-- Update `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
-- Utilize class methods to further abstract some of my repeating logic when building and cleaning up feeds
-- Refactor older feed files to incorporate my new class structures
-- Add more publications!
-- Are there too many links on the UI?
-- Flesh out the app's overall metadata
-- Add a search field on the UI
-- Expand upon the current 404 page
-- Any way to utilize relative data analysis or machine learning?
+- Updating SQLite database to PostgreSQL
+- Updating `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
+- Utilizing class methods to further abstract some of my repeating logic when building and cleaning up feeds
+- Refactoring older feed files to incorporate my new class structures
+- Adding more publications
+- Fleshing out the app's overall metadata
+- Adding a search field on the UI
+- Expanding upon the current 404 page
+- Utilizing relative data analysis or machine learning
 
 ### How Can You Contribute?
 
@@ -356,7 +366,7 @@ A special shout-out to Nish Tahir for giving thoughtful feedback on an early ver
 
 Doodles by [Doodle Ipsum](https://doodleipsum.com/).
 
-### Candyfloss Outlets
+### Candyfloss Outlets <a name="outlets"></a>
 
 Candyfloss pulls from the following outlets:
 
@@ -388,7 +398,7 @@ Candyfloss pulls from the following outlets:
 
 ### Outlets To Add
 
-The outlets I want to next add to Candyfloss:
+The outlets I want to add to Candyfloss:
 
 - Bandcamp
 - Creem
@@ -418,9 +428,33 @@ The outlets I want to next add to Candyfloss:
 
 [Return to top](#top)
 
-### TBD
+### Flask
 
-TBD.
+A micro web framework written in Python. It is classified as a micro-framework because it does not require particular tools or libraries.
+
+### Virtual Environment
+
+A tool that helps to keep dependencies required by different projects separate by creating isolated Python environments for them.
+
+### Dependencies
+
+External packages or libraries that are required by a Python application to run properly.
+
+### Pip
+
+The package installer for Python. You can use pip to install Python packages from the Python Package Index and other indexes.
+
+### SQLite
+
+A software library that provides a relational database management system.
+
+### API (Application Programming Interface)
+
+A set of protocols, routines, and tools used for building software applications. It specifies how software components should interact and makes it easier to develop software by providing pre-built components that can be used to build larger applications.
+
+### JSON (JavaScript Object Notation)
+
+A lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is a text format that is completely language-independent.
 
 ---
 
