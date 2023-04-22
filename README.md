@@ -66,9 +66,7 @@ VII. [Glossary](#glossary)
 
 ### Overview of Candyfloss
 
-**Candyfloss**: Hacker News but for music.
-
-Candyfloss is a digital daily newspaper curating the best music news and essays. Now you don't need Twitter to keep up with the music world. Candyfloss's styling is inspired by the print covers of the 'London Review of Books' and has a strict cut-off point to fight endless scrolling. Candyfloss displays the 50 most recent links from several outlets and refreshes every hour.
+**Candyfloss** is a digital daily newspaper curating the best music news and essays. Now you don't need Twitter to keep up with the music world. Candyfloss has a strict cut-off point to fight endless scrolling. It displays the 50 most recent links from several outlets and refreshes every hour.
 
 To use Candyfloss:
 
@@ -78,7 +76,7 @@ To use Candyfloss:
 
 ### Why Use Candyfloss?
 
-**The problem**: I don't want to rely on social media for music news. However, social media is an easy way to keep track of new content from writers and outlets on various types of media: websites, newsletters, video channels, and more. Is there a way to see all these various links without the baggage of social media?
+**The problem**: I don't want to rely on social media for music news.
 
 **The solution**: I created a simple RSS reader web app to share with colleagues.
 
@@ -96,9 +94,9 @@ An ideal user is a fellow music journalist or music fan who wants to discover so
 
 The deployed app: <https://www.candyfloss.app/>
 
-### Installing Dependencies
+### Installing Dependencies <a name="install"></a>
 
-In order to work with Candyfloss locally, download the most updated versions of the following (unless a version number is specified):
+In order to work with Candyfloss locally, download the most updated versions of the following tools and libraries (unless a specific version is noted):
 
 - [Python](https://www.python.org/) (3.8.6)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
@@ -125,7 +123,7 @@ To run Candyfloss locally:
 1. Open your IDE of choice.
 2. Open a terminal window.
 3. Enter and run this command: `flask --debug run`.
-4. Open the development server URL that's provided in the terminal output.
+4. Open the development server URL provided in the terminal output.
 5. You should now see Candyfloss!
 
 ### Running Tests
@@ -143,7 +141,7 @@ Pytest is testing `app.py` and each file found in the `feeds` folder. More feed 
 
 ### Overall Architecture
 
-The most important folders and files to know first:
+The most important folders and files to know:
 
 - `feeds`: Holds the web scraping for each publication
 - `static`: Holds images and `styles.css`
@@ -151,21 +149,21 @@ The most important folders and files to know first:
 - `tests`: Where I test `app.py` and `feeds` using pytest
 - `app.py`: where I combine the feeds into one clean and organized feed which is then rendered to `templates`
 
-### How Candyfloss Works?
+### How Candyfloss Works
 
-Below is the workflow I follow whenever I'm adding new outlets to Candyfloss:
+Below is the workflow for adding new outlets:
 
 #### Find and Test the RSS URLs
 
-I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can find it most of the time by typing "/rss" or "/feed" at the end of a URL, or I use Google's "RSS Subscription Extension" Chrome plugin.
+I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can find it most of the time by typing "`/rss`" or "`/feed`" at the end of a URL, or I use Google's "RSS Subscription Extension" Chrome plugin.
 
 > To publications that make their RSS feeds easy to find: Thank you!
 
 #### Create a Publication's Feed
 
-Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication:
+Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication. This is done in three parts:
 
-**"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for genuine web scraping when RSS is not available):
+**"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for when RSS isn't available):
 
 ```python
 def get_soup():
@@ -177,7 +175,7 @@ def get_soup():
 soup = get_soup()
 ```
 
-**"Cook" the soup**: pinpoint the repeating element holding the content that I wish to pull from:
+**"Cook" the soup**: pinpoint the repeating element holding the content I want:
 
 ```python
 def cook_soup():  # each article is in an <item/>
@@ -187,7 +185,7 @@ def cook_soup():  # each article is in an <item/>
 articles = cook_soup()
 ```
 
-**"Deliver" the soup**: use a `for` loop to append the info I need into my empty lists, which I then combine into a new dictionary, which looks like:
+**"Deliver" the soup**: use a `for` loop to append the info I need into my empty lists, which I then combine into a new dictionary that looks like this:
 
 ```python
 PUBLICATION = [
@@ -201,7 +199,9 @@ PUBLICATION = [
 ]
 ```
 
-> REFACTORING NOTES: Since deploying this app, I've refactored these steps to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began. `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic. It also can be challenging when information is missing, mostly from publications not crediting their authors, or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
+> REFACTORING NOTES: Since first deploying this app, I've refactored these steps to include an "Outlet" class to better abstract the structure and abilities of a publication. `p4k.py` displays how this process began. `p4k_class.py` shows how this process has evolved. Future work will include ways to take more advantage of class methods to simplify repeating logic.
+>
+> It can also be challenging when information is missing, mostly from publications not crediting their authors or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
 
 #### Combine the Feeds into THE Feed
 
@@ -230,9 +230,9 @@ Candyfloss's styling is inspired by the print covers of the 'London Review of Bo
 
 Candyfloss's CSS is all done in `styles.css`. Media queries are currently set for the following break points:
 
-- 992px: most iPads and Surface Pros
-- 600px: most iPhones and Samsung Galaxies
-- 360px: for the Galaxy Fold
+- **992px**: most iPads and Surface Pros
+- **600px**: most iPhones and Samsung Galaxies
+- **360px**: for the Galaxy Fold
 
 Color CSS variables are defined as:
 
@@ -279,17 +279,17 @@ Mobile:
 
 To view the API for Candyfloss's entire feed:
 
-1. Follow the previous "To run Candyfloss" steps.
+1. Compete the steps found in [Installing Dependencies](#install).
 2. Find and click the end of the local server URL.
 3. Type in "`/api`" to the end of the URL.
 4. Press enter.
-5. You'll now see the API.
+5. You'll now see the API!
 
 ### API for a Specific Publication
 
 To view the API for a specific publication:
 
-1. Follow the previous "To view the API for Candyfloss's entire feed" steps.
+1. Follow the previous "Overview of Candyfloss's API" steps.
 2. At the end of the URL, type in "`/PUBLICATION-NAME`" (i.e. "`/api/Pitchfork`").
 3. Press enter.
 4. You'll now see the API for your specific publication.
@@ -302,9 +302,9 @@ Candyfloss uses an SQLite database currently holding the outlets and RSS links b
 
 To view this list of scraped outlets:
 
-1. At the end of your local server URL, add "/db".
+1. At the end of your local server URL, add "`/db`".
 
-> Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app. I chose SQLite for its ease to use with Python but plan to upgrade the database in future refactoring.
+> Future refactoring will make this database more dynamic and directly pull from all the feeds being imported ino `app.py`, and make it visible on the deployed app.
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=47f0be30daaa2b2662e7cf09d7a21413)
 
@@ -314,7 +314,7 @@ To view this list of scraped outlets:
 
 ### Next Steps
 
-Candyfloss is always being updated. Future actions to take include:
+I'm continuing to make updates to Candyfloss when I can. Future actions to take include:
 
 - Updating SQLite database to PostgreSQL
 - Updating `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
@@ -328,17 +328,21 @@ Candyfloss is always being updated. Future actions to take include:
 
 ### How Can You Contribute?
 
-Any way you can! I'm especially looking for help to flesh out my Python automated testing, and suggestions on new outlets I should add to Candyfloss.
+Any way you can! I'm looking for help to flesh out my pytest automated testing, and suggestions on new outlets I should add to Candyfloss.
 
 ### Closing Credits
 
-A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app, and James Bennington for his helpful guidance on how to document my code.
+A special shout-out to Nish Tahir for giving thoughtful feedback on an early version of this app, and James Bennington for his guidance on how to document my code.
 
 ### Cited Sources
 
-[Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
+Candyfloss would not be possible without the following:
 
-Doodles by [Doodle Ipsum](https://doodleipsum.com/).
+- [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask.
+- [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask.
+- I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere.
+- [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
+- Doodles by [Doodle Ipsum](https://doodleipsum.com/).
 
 ### Candyfloss Outlets <a name="outlets"></a>
 
@@ -372,7 +376,7 @@ Candyfloss pulls from the following outlets:
 
 ### Outlets To Add
 
-The outlets I want to add to Candyfloss:
+The outlets I want to add when I have time:
 
 - Bandcamp
 - Creem
