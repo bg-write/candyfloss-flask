@@ -50,7 +50,15 @@ VI. [Giving Thanks](#legal)
 
 VII. [Glossary](#glossary)
 
+- Python
+- Beautiful Soup
+- Requests
+- lxml
+- Pytest
+- Pylint
+- yapf
 - Flask
+- PythonAnywhere
 - Virtual Environment
 - Dependencies
 - Pip
@@ -66,7 +74,7 @@ VII. [Glossary](#glossary)
 
 ### Overview of Candyfloss
 
-**Candyfloss** is a digital daily newspaper curating the best music news and essays. Now you don't need Twitter to keep up with the music world. Candyfloss has a strict cut-off point to fight endless scrolling. It displays the 50 most recent links from several outlets and refreshes every hour.
+**Candyfloss** is a digital daily newspaper curating the best music news and essays. Now you don't need Twitter to keep up with the music world. Candyfloss's feed has a strict cut-off to fight endless scrolling. It displays the 50 most recent links from several outlets and refreshes every hour.
 
 To use Candyfloss:
 
@@ -78,13 +86,13 @@ To use Candyfloss:
 
 **The problem**: I don't want to rely on social media for music news.
 
-**The solution**: I created a simple RSS reader web app to share with colleagues.
+**The solution**: I created a simple RSS reader web app.
 
 ### Project Goals & Intended Audience
 
 Candyfloss aims to replace Twitter as your source for music news. Additional news outlets and improvements to the code's web scraping are pending.
 
-An ideal user is a fellow music journalist or music fan who wants to discover some of the best music writing today without being on social media.
+An ideal user is a fellow music journalist or music fan who wants to discover some of the best music writing today without social media.
 
 ![image](https://doodleipsum.com/700?bg=6392D9&i=9a88ce13e0be8a087884187b642fcedb)
 
@@ -92,11 +100,11 @@ An ideal user is a fellow music journalist or music fan who wants to discover so
 
 [Return to top](#top)
 
-The deployed app: <https://www.candyfloss.app/>
+The deployed app: <https://www.candyfloss.app/>.
 
 ### Installing Dependencies <a name="install"></a>
 
-In order to work with Candyfloss locally, download the most updated versions of the following tools and libraries (unless a specific version is noted):
+To work with Candyfloss locally, download the most updated versions of the following tools and libraries (unless a specific version is noted):
 
 - [Python](https://www.python.org/) (3.8.6)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
@@ -143,11 +151,11 @@ Pytest is testing `app.py` and each file found in the `feeds` folder. More feed 
 
 The most important folders and files to know:
 
-- `feeds`: Holds the web scraping for each publication
-- `static`: Holds images and `styles.css`
-- `templates`: The HTML you see on the browser
-- `tests`: Where I test `app.py` and `feeds` using pytest
-- `app.py`: where I combine the feeds into one clean and organized feed which is then rendered to `templates`
+- `feeds`: holds the web scraping for each publication.
+- `static`: contains images and `styles.css`.
+- `templates`: the HTML you see on the browser.
+- `tests`: where I test `app.py` and `feeds` using pytest.
+- `app.py`: where I combine the feeds into one clean and organized feed that is then rendered to `templates`.
 
 ### How Candyfloss Works
 
@@ -155,15 +163,15 @@ Below is the workflow for adding new outlets:
 
 #### Find and Test the RSS URLs
 
-I first find a working RSS feed for a publication. If a website doesn't promote its own RSS, I can find it most of the time by typing "`/rss`" or "`/feed`" at the end of a URL, or I use Google's "RSS Subscription Extension" Chrome plugin.
+I first find a publication's working RSS feed. If a website doesn't promote its RSS, I can find it by typing "`/rss`" or "`/feed`" at the end of a URL, or I use Google's "RSS Subscription Extension" Chrome plugin.
 
 > To publications that make their RSS feeds easy to find: Thank you!
 
 #### Create a Publication's Feed
 
-Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS for each publication. This is done in three parts:
+Each file in the `feeds` folder is where I use Beautiful Soup, requests, and lxml to call and clean up the RSS. This is done in three parts:
 
-**"Get" the soup**: make my GET request using requests, Beautiful Soup, and lxml (for when RSS isn't available):
+**"Get" the soup**: make my GET request:
 
 ```python
 def get_soup():
@@ -185,7 +193,7 @@ def cook_soup():  # each article is in an <item/>
 articles = cook_soup()
 ```
 
-**"Deliver" the soup**: use a `for` loop to append the info I need into my empty lists, which I then combine into a new dictionary that looks like this:
+**"Deliver" the soup**: use a `for` loop to append the info I need into my empty lists, which I then combine into a new dictionary that looks like the following:
 
 ```python
 PUBLICATION = [
@@ -203,9 +211,9 @@ PUBLICATION = [
 >
 > It can also be challenging when information is missing, mostly from publications not crediting their authors or isn't formatted like most RSS feeds. The most common examples of the latter involves time and dates, which I clean up and standardize using Python's `datetime` functionality.
 
-#### Combine the Feeds into THE Feed
+#### Combine the Feeds into the Overall Feed
 
-In `app.py`, I import all the publication feeds, combine them into one feed, and then use a sorting function to order this new feed by each link's date, and slice away any publication links after a set number (which for now is 50). This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
+In `app.py`, I import all the publication feeds, combine them into one feed, and then use a sorting function to order this new feed by each link's date. I also slice away any publication links after a set number, which for now is 50. This cleaned-up feed is then rendered into my main app route, along with the current date at any given time.
 
 ```python
 # combining our feeds
@@ -224,15 +232,15 @@ link_dicts_sorted_and_reduced = link_dicts_sorted[0:50]
 
 [Return to top](#top)
 
-Candyfloss's styling is inspired by the print covers of the 'London Review of Books' and models Google's Python style guide with a few variations.
+Candyfloss's styling is inspired by the print covers of the 'London Review of Books.'
 
 ### CSS
 
 Candyfloss's CSS is all done in `styles.css`. Media queries are currently set for the following break points:
 
-- **992px**: most iPads and Surface Pros
-- **600px**: most iPhones and Samsung Galaxies
-- **360px**: for the Galaxy Fold
+- **992px**: most iPads and Surface Pros.
+- **600px**: most iPhones and Samsung Galaxies.
+- **360px**: for the Galaxy Fold.
 
 Color CSS variables are defined as:
 
@@ -247,9 +255,9 @@ Color CSS variables are defined as:
 
 Candyfloss follows [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) as closely as possible. This involves:
 
-- Using `pylint` for automated code linting
-- Using `yapf` for auto-formatting
-- Including Google's settings file for Vim and `pylintrc`
+- Using `pylint` for automated code linting.
+- Using `yapf` for auto-formatting.
+- Including Google's settings file for Vim and `pylintrc`.
 
 ### Accessibility
 
@@ -314,7 +322,7 @@ To view this list of scraped outlets:
 
 ### Next Steps
 
-I'm continuing to make updates to Candyfloss when I can. Future actions to take include:
+I'm making updates to Candyfloss whenever I can. Future actions to take include:
 
 - Updating SQLite database to PostgreSQL
 - Updating `pytest` to now account for object and database refactoring and more closely follow Google's Python style guide
@@ -328,7 +336,7 @@ I'm continuing to make updates to Candyfloss when I can. Future actions to take 
 
 ### How Can You Contribute?
 
-Any way you can! I'm looking for help to flesh out my pytest automated testing, and suggestions on new outlets I should add to Candyfloss.
+Any way you can! I'm looking for help to flesh out my pytest automated testing, and suggestions on new outlets to add.
 
 ### Closing Credits
 
@@ -376,7 +384,7 @@ Candyfloss pulls from the following outlets:
 
 ### Outlets To Add
 
-The outlets I want to add when I have time:
+The outlets I want to add next:
 
 - Bandcamp
 - Creem
