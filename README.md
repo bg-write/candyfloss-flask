@@ -54,7 +54,7 @@ VII. [Glossary](#glossary)
 
 - TBD
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=f701b63cfe38e57fa0408c238af32027)
 
 ## I. Introduction <a name="intro"></a>
 
@@ -84,7 +84,7 @@ Candyfloss aims to replace Twitter as your source for music news. Additional new
 
 An ideal user of Candyfloss is a fellow music journalist or music fan who wants to discover some of the best music writing today without being on social media.
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=9a88ce13e0be8a087884187b642fcedb)
 
 ## II. Getting Started <a name="getting-started"></a>
 
@@ -119,7 +119,7 @@ Pytest is testing `app.py` and each file found in the `feeds` folder. More feed 
 1. Open a new terminal window.
 2. Enter and run the command `pytest -v`.
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=be149914c1ca3abd4d013b3b7bb43666)
 
 ## III. Usage <a name="usage"></a>
 
@@ -133,7 +133,7 @@ TBD.
 
 TBD.
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=32d55ab56f53f676aad5e464810a2833)
 
 ## IV. Architecture <a name="architecture"></a>
 
@@ -279,7 +279,7 @@ In order to work with Candyfloss locally, download the most updated versions of 
 
 More requirements can be found in `requirements.txt`
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=74992813671e428c3a0dc015673e1899)
 
 ## V. API Reference <a name="api"></a>
 
@@ -320,7 +320,7 @@ TBD.
 
 TBD.
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=47f0be30daaa2b2662e7cf09d7a21413)
 
 ## VI. Giving Thanks <a name="legal"></a>
 
@@ -353,6 +353,8 @@ A special shout-out to Nish Tahir for giving thoughtful feedback on an early ver
 ### Cited Sources
 
 [Pallets's intro to Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/) is a recommended starting point for anyone wanting to explore Flask. [Waweru Mwaura](https://circleci.com/blog/testing-flask-framework-with-pytest/) has a great blog post on the basics of using pytest with Flask. I also want to thank [Magnitopic](https://www.youtube.com/@Magnitopic) for their helpful [YouTube video](https://www.youtube.com/watch?v=AZMQVI6Ss64) on how to deploy a Flask app to PythonAnywhere. [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-an-sqlite-database-in-a-flask-application), [CodingCasually](https://www.youtube.com/watch?v=tPxUSWTvZAs), and [ProfessorPitch](https://www.youtube.com/watch?v=YLOZpYAYPLQ) were all helpful with the initial local connection to SQLite.
+
+Doodles by [Doodle Ipsum](https://doodleipsum.com/).
 
 ### Candyfloss Outlets
 
@@ -410,7 +412,7 @@ The outlets I want to next add to Candyfloss:
 - NPR
 - ... and more!
 
-![image]()
+![image](https://doodleipsum.com/700?bg=6392D9&i=1d13152959d2ca9022a70d05a6b1cbc2)
 
 ## VII. Glossary <a name="glossary"></a>
 
