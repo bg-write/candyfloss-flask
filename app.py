@@ -2,11 +2,14 @@
 
 Import feeds into one feed: sort, slice, then render.
 """
+# Standard library imports
 from datetime import datetime
+
+# Third-party package imports
 from flask import Flask, render_template
 import sqlite3
 
-# Importing all our working feeds
+# Local module imports (all our working feeds)
 from feeds.p4k_class import p4k
 from feeds.gum import gum
 from feeds.ad import ad
