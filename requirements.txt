@@ -33,7 +33,7 @@ pylint==2.15.9
 pytest==7.2.0
 python-dotenv==1.0.0
 PyYAML==6.0
-requests==2.31.0
+requests==2.32.0
 smmap==5.0.0
 soupsieve==2.3.2.post1
 SQLAlchemy==1.4.46
